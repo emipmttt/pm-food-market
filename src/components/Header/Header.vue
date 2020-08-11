@@ -1,14 +1,14 @@
 <template>
-  <header class="header">
-    <nav class="header__navbar">
-      <figure class="header__navbar--menu">
+  <header>
+    <nav class="navbar">
+      <figure class="navbar__menu">
         <img src="https://img.icons8.com/ios/50/000000/menu.png" />
       </figure>
-      <div class="header__navbar--input">
+      <div class="navbar__input">
         <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
         <input type="text" placeholder="Search a dish..." />
       </div>
-      <figure class="header__navbar--cart">
+      <figure class="navbar__cart">
         <img src="https://img.icons8.com/ios/50/000000/shopping-cart.png" />
       </figure>
     </nav>
@@ -22,17 +22,17 @@ export default {
 </script>
 
 <style lang="scss">
-.header__navbar {
+.navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  & figure {
+  &__menu {
     margin: 10px;
   }
-  &--menu img {
+  &__menu img {
     width: 30px;
   }
-  &--input {
+  &__input {
     display: flex;
     border: 1px solid black;
     img {
@@ -40,13 +40,16 @@ export default {
       align-self: center;
       width: 20px;
     }
+    input {
+      outline: none;
+    }
   }
-  &--input input {
+  &__input input {
     height: 30px;
     width: 500px;
     border: none;
   }
-  &--cart img {
+  &__cart img {
     width: 30px;
   }
 }
