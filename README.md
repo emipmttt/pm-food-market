@@ -1,4 +1,7 @@
-# Platzi Master | Food  🍰
+# Platzi Master | Choose & Cook  🍰
+
+## A educational proyecto for Platzi Master, about food ecommerce where you can buy the recipe ingredients.
+
 
 ## Project setup
 ```
@@ -10,15 +13,21 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies and deploy for production
+
+#### On linux run on terminal
+
 ```
-npm run build
+ sh deploy.sh
+```
+
+#### On Windows you can run the file with GIT Bash
+
+```
+ sh deploy.sh
 ```
 
 ### Lints and fixes files
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
