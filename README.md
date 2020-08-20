@@ -2,7 +2,6 @@
 
 ## A educational proyecto for Platzi Master, about food ecommerce where you can buy the recipe ingredients.
 
-
 ## Project setup
 ```
 npm install
