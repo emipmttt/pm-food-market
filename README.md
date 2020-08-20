@@ -1,4 +1,4 @@
-# Platzi Master | Food 
+# Platzi Master | Food  🍰
 
 ## Project setup
 ```
