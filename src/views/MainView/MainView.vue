@@ -1,9 +1,39 @@
 <template>
-  <div></div>
+  <div>
+    <Header />
+    <section>
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+      <ToggleFilter />
+    </section>
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+  </div>
 </template>
 
 <script>
-export default {};
+import Header from "../../components/Header/Header";
+import Card from "../../components/Card/Card";
+import ToggleFilter from "../../components/ToggleFilter/ToggleFilter";
+
+export default {
+  components: {
+    Header,
+    Card,
+    ToggleFilter,
+  },
+};
 </script>
 
 <style>
