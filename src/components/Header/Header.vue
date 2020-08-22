@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <nav class="header__navbar">
-      <figure class="header__navbar--menu">
-        <img src="https://img.icons8.com/ios/50/000000/menu.png" />
-      </figure>
+      <div>
+        <SideBar />
+      </div>
       <div class="header__navbar--input">
         <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
         <input type="text" placeholder="Search a dish..." />
@@ -16,8 +16,12 @@
 </template>
 
 <script>
+import SideBar from "../SideBar/SideBar";
 export default {
   name: "Header",
+  components: {
+    SideBar,
+  },
 };
 </script>
 
