@@ -1,6 +1,8 @@
 <template>
   <figure class="card">
-    <img class="card__image" :src="require('@/assets/images/dummy.jpg')" alt />
+    <router-link to="/recipeview">
+      <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
+    </router-link>
     <div class="card__description">
       <p>Lorem ipsum</p>
       <div class="card__action">
