@@ -1,6 +1,6 @@
 <template>
   <figure class="card">
-    <img class="card__image" :src="require('@/assets/images/dummy.jpg')" alt />
+    <img class="card__image"/>
     <div class="card__description">
       <p>Lorem ipsum</p>
       <div class="card__action">
