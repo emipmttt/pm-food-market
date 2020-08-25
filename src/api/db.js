@@ -1,5 +1,4 @@
 import firebase from "./firebase";
-import { get } from "core-js/fn/dict";
 
 export default {
 
@@ -61,9 +60,7 @@ export default {
                 success: false,
                 error
             }
-
         }
-
     },
 
     async delete(collection, id) {
