@@ -1,5 +1,6 @@
 <template>
-  <section class="container">
+<main class="min-hei" :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`">
+  <section class="main-container">
     <h1>Manage Recipe</h1>
     <form>
       <div class="row">
@@ -38,8 +39,8 @@
           <label class="form-input--label" for="Steps">Steps</label>
         </div>
         <div class="col-md-12 form-input">
-          <input class="form-input--input" type="text" id="Photos" required />
-          <label class="form-input--label" for="Photos">Photos</label>
+          <input class="form-input--input form-input--input__file" type="file" id="Photos" multiple accept="image/x-png,image/gif,image/jpeg" required />
+          <label class="form-input--label active" for="Photos">Photos</label>
         </div>
       </div>
 
@@ -48,6 +49,7 @@
       </div>
     </form>
   </section>
+</main>
 </template>
 
 <script>
@@ -65,7 +67,15 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-.container {
+.h1 {
+  text-align: left;
+}
+
+.min-hei {
+  min-height: calc(100vh - 9em);
+}
+
+.main-container {
   margin: auto;
   @media only screen and (min-width: 48em) {
     width: 46rem;
@@ -110,20 +120,33 @@ body {
     border-bottom: solid 1px;
     padding: 0.5em;
     margin-bottom: 1em;
+    background-color: transparent;
+    min-height: 2em;
 
     &:focus + .form-input--label,
     &:valid + .form-input--label {
       transform: translate(-0.6em, -1em) scale(0.7);
     }
+    &:focus {
+      outline: none;
+    }
+
+    // &__file {
+    //   opacity: 0;
+    // }
   }
 
   &--label {
     position: absolute;
-    background-color: #fff;
+    // background-color: #fff;
     top: 0.2em;
     left: 1em;
     padding: 0.2em;
     transition-duration: 0.3s;
+
+    &.active {
+      transform: translate(-0.6em, -1em) scale(0.7);
+    }
   }
 }
 

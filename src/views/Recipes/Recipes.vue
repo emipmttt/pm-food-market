@@ -1,83 +1,87 @@
 <template>
-<section class="container">
-  <h1 class="h1">Recipes</h1>
-  <table  class="recipe-table">
-    <tbody>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-      <tr>
-        <td>cooking recipe</td>
-        <td>
-          <router-link to="/manage-recipe">
-            <span class="material-icons">edit</span>
-          </router-link>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+  <main
+    :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`"
+  >
+    <section class="main-container">
+      <h1 class="h1">Recipes</h1>
+      <table class="recipe-table">
+        <tbody>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+          <tr>
+            <td>cooking recipe</td>
+            <td>
+              <router-link to="/manage-recipe">
+                <span class="material-icons">edit</span>
+              </router-link>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -93,7 +97,7 @@ export default {};
   text-align: left;
 }
 
-.container {
+.main-container {
   margin: auto;
   @media only screen and (min-width: 48em) {
     width: 46rem;
@@ -114,7 +118,7 @@ export default {};
   td {
     text-align: left;
     font-weight: 700;
-    border-bottom: solid 1px;
+    border-bottom: solid 1px #0000001f;
     padding: 1em;
 
     &:last-child {
