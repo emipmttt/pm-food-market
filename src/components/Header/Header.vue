@@ -1,9 +1,7 @@
 <template>
   <header class="header">
     <nav class="header__navbar">
-      <div>
-        <SideBar />
-      </div>
+      <SideBar />
       <div class="header__navbar--input">
         <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
         <input type="text" placeholder="Search a dish..." />
@@ -28,8 +26,10 @@ export default {
 <style lang="scss">
 .header__navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px;
+
   & figure {
     margin: 10px;
   }
@@ -37,8 +37,12 @@ export default {
     width: 30px;
   }
   &--input {
+    padding-left: 10px;
+    align-items: center;
     display: flex;
-    border: 1px solid black;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border-radius: 5px;
     img {
       padding: 0 10px;
       align-self: center;
@@ -49,6 +53,10 @@ export default {
     height: 30px;
     width: 500px;
     border: none;
+    padding: 10px;
+  }
+  &--input input:focus {
+    outline: none;
   }
   &--cart img {
     width: 30px;

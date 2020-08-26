@@ -5,10 +5,10 @@
     </router-link>
     <div class="card__description">
       <p>Lorem ipsum</p>
-      <div class="card__action">
-        <button class="buy">Buy</button>
-        <button class="add">Add</button>
-      </div>
+    </div>
+    <div class="card__action">
+      <button class="buy">Buy</button>
+      <button class="add">Add</button>
     </div>
   </figure>
 </template>
@@ -26,7 +26,8 @@ export default {
   width: 300px;
   height: 250px;
   border-radius: 16px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+  background: #fff;
   &__image {
     display: block;
     object-fit: cover;
@@ -37,7 +38,11 @@ export default {
   }
   &__description {
     text-align: left;
-    padding: 5px;
+    padding: 20px;
+
+    p {
+      margin: 0;
+    }
   }
   &__action {
     display: flex;

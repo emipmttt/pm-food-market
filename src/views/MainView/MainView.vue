@@ -1,26 +1,16 @@
 <template>
-  <div>
+  <main
+    :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: auto 60%`"
+  >
     <Header />
-    <section>
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
-      <ToggleFilter />
+    <section class="toggle-filter-container">
+      <ToggleFilter v-for="i in 8" :key="i" />
     </section>
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <section>
+      <Card v-for="i in 16" :key="i" />
+    </section>
     <Footer />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -42,5 +32,13 @@ export default {
 <style>
 body {
   margin: 0;
+  padding: 0;
+}
+
+.toggle-filter-container {
+  width: 100%;
+  height: 170px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 </style>

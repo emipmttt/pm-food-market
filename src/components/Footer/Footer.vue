@@ -1,7 +1,7 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <span>Platzi Master Project</span>
-  </div>
+  </footer>
 </template>
 
 <script>

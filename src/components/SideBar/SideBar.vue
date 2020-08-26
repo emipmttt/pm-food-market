@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{'show': showSidebar}">
+  <div class="container">
     <div class="control">
       <img
         class="control__img"
@@ -8,15 +8,20 @@
       />
     </div>
 
-    <div class="navigation-links">
+    <nav v-show="showLink" class="navigation-links">
+      <img
+        class="control__img"
+        src="https://img.icons8.com/ios/50/000000/menu.png"
+        @click="showNav"
+      />
       <transition-group name="fade">
-        <div v-show="showLink" key="1">Home</div>
-        <div v-show="showLink" key="2">Log In</div>
-        <div v-show="showLink" key="3">Sign Up</div>
-        <div v-show="showLink" key="4">Subscription</div>
-        <div v-show="showLink" key="5">FAQ</div>
+        <a v-show="showLink" key="1">Home</a>
+        <a v-show="showLink" key="2">Log In</a>
+        <a v-show="showLink" key="3">Sign Up</a>
+        <a v-show="showLink" key="4">Subscription</a>
+        <a v-show="showLink" key="5">FAQ</a>
       </transition-group>
-    </div>
+    </nav>
   </div>
 </template>
 
@@ -49,38 +54,31 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  width: 0;
-  padding: 0px;
-  min-height: calc(100vh - 20px);
-  background-color: rgba($color: #fff, $alpha: 0.8);
   border-width: 0 1px 0 0;
-  z-index: 999;
   transition: all 0.5s ease-in-out;
+
   .control {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
-    margin-bottom: 10px;
+
     &__img {
       width: 30px;
-      padding-left: 40px;
       cursor: pointer;
     }
   }
-  &.show {
-    width: 180px;
-  }
   .navigation-links {
-    padding-top: 14px;
-    float: left;
-    div {
+    position: fixed;
+    padding: 14px;
+    height: 100vh;
+    top: 0;
+    z-index: 999;
+    background: rgba($color: #fff, $alpha: 0.8);
+    backdrop-filter: blur(5px);
+    a {
+      display: block;
       font-size: 1.35rem;
-      padding-left: 20px;
-      padding-bottom: 10px;
       margin: 20px;
       cursor: pointer;
       &:hover {
