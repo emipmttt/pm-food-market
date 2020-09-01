@@ -16,22 +16,32 @@
       />
       <transition-group name="fade">
         <a v-show="showLink" key="1">Home</a>
-        <a v-show="showLink" key="2">Log In</a>
-        <a v-show="showLink" key="3">Sign Up</a>
+        <a v-show="showLink" key="2" @click="showLogin = true">Log In</a>
+        <a v-show="showLink" key="3" @click="showSignup = true">Sign Up</a>
         <a v-show="showLink" key="4">Subscription</a>
         <a v-show="showLink" key="5">FAQ</a>
       </transition-group>
     </nav>
+    <Login v-if="showLogin" />
+    <SignUp v-if="showSignup" />
   </div>
 </template>
 
 <script>
+import Login from "../Login/Login";
+import SignUp from "../SignUp/SignUp";
 export default {
   name: "SideBar",
+  components: {
+    Login,
+    SignUp,
+  },
   data: () => {
     return {
       showSidebar: false,
       showLink: false,
+      showLogin: false,
+      showSignup: false,
     };
   },
   methods: {
