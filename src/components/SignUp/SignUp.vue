@@ -22,12 +22,38 @@
             </div>
 
             <form class="modal__form" action="/">
-              <input type="text" name="email" id="email" placeholder="Firts Name" />
+            <div class="row">
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="text" name="FirtsName" id="FirtsName" required />
+                <label class="form-input--label" for="FirtsName">Firts Name</label>
+              </div>
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="text" name="LastName" id="LastName" required />
+                <label class="form-input--label" for="LastName">Last Name</label>
+              </div>
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="date" name="Birthdate" id="Birthdate" required />
+                <label class="form-input--label active" for="Birthdate">Birthdate</label>
+              </div>
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="email" name="email" id="email" required />
+                <label class="form-input--label" for="email">Email</label>
+              </div>
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="password" name="Password" id="Password" required />
+                <label class="form-input--label" for="Password">Password</label>
+              </div>
+              <div class="col-md-6 form-input">
+                <input class="form-input--input" type="password" name="ConfirmPassword" id="ConfirmPassword" required />
+                <label class="form-input--label" for="ConfirmPassword">ConfirmPassword</label>
+              </div>
+            </div>
+              <!-- <input type="text" name="email" id="email" placeholder="Firts Name" />
               <input type="text" name="email" id="email" placeholder="Last Name" />
               <input type="date" name="email" id="email" placeholder="Birthdate" />
               <input type="email" name="email" id="email" placeholder="email@example.com" />
               <input type="password" name="email" id="email" placeholder="Password" />
-              <input type="password" name="password" id="password" placeholder="Confirm Password" />
+              <input type="password" name="password" id="password" placeholder="Confirm Password" /> -->
 
               <button>Sign Up</button>
             </form>
@@ -62,7 +88,8 @@ export default {
   }
 
   &__container {
-    width: 35%;
+    width: 500px;
+    max-width: 100%;
     height: auto;
     margin: 0px auto;
     padding: 20px 30px;
@@ -78,6 +105,7 @@ export default {
     justify-content: flex-start;
     margin-top: 10px;
     font-size: 32px;
+    font-weight: 700;
 
     img {
       position: relative;
@@ -101,16 +129,16 @@ export default {
     display: inline-block;
     align-items: center;
     padding-top: 10px;
-    input {
-      border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.42);
-      margin: 20px 10px;
-      width: 40%;
-    }
-    input:focus {
-      outline: none;
-      border-bottom: 2px solid #e76f51;
-    }
+    // input {
+    //   border: none;
+    //   border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    //   margin: 20px 10px;
+    //   width: 40%;
+    // }
+    // input:focus {
+    //   outline: none;
+    //   border-bottom: 2px solid #e76f51;
+    // }
     button {
       width: 50%;
       height: 30px;
@@ -137,7 +165,7 @@ export default {
       cursor: pointer;
 
       img {
-        width: 25px;
+        width: 20px;
       }
     }
   }

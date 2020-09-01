@@ -1,55 +1,65 @@
 <template>
-<main class="min-hei" :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`">
-  <section class="main-container">
-    <h1>Manage Recipe</h1>
-    <form>
-      <div class="row">
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Title" required />
-          <label class="form-input--label" for="Title">Title</label>
-        </div>
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Description" required />
-          <label class="form-input--label" for="Description">Description</label>
-        </div>
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Price" required />
-          <label class="form-input--label" for="Price">Price</label>
+  <main
+    class="min-hei"
+    :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`"
+  >
+    <section class="main-container">
+      <h1>Manage Recipe</h1>
+      <form>
+        <div class="row">
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Title" required />
+            <label class="form-input--label" for="Title">Title</label>
+          </div>
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Description" required />
+            <label class="form-input--label" for="Description">Description</label>
+          </div>
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Price" required />
+            <label class="form-input--label" for="Price">Price</label>
+          </div>
+
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Tags" required />
+            <label class="form-input--label" for="Tags">Tags</label>
+          </div>
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Time" required />
+            <label class="form-input--label" for="Time">Time</label>
+          </div>
+          <div class="col-md-4 form-input">
+            <input class="form-input--input" type="text" id="Difficulty" required />
+            <label class="form-input--label" for="Difficulty">Difficulty</label>
+          </div>
+
+          <div class="col-md-12 form-input">
+            <input class="form-input--input" type="text" id="Ingredients" required />
+            <label class="form-input--label" for="Ingredients">Ingredients</label>
+          </div>
+          <div class="col-md-12 form-input">
+            <input class="form-input--input" type="text" id="Steps" required />
+            <label class="form-input--label" for="Steps">Steps</label>
+          </div>
+          <div class="col-md-12 form-input">
+            <input
+              class="form-input--input form-input--input__file"
+              type="file"
+              id="Photos"
+              multiple
+              accept="image/x-png, image/gif, image/jpeg"
+              required
+            />
+            <label class="form-input--label active" for="Photos">Photos</label>
+          </div>
         </div>
 
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Tags" required />
-          <label class="form-input--label" for="Tags">Tags</label>
+        <div class="text-right">
+          <button class="btn btn-primary" type="submit">SUBMIT</button>
         </div>
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Time" required />
-          <label class="form-input--label" for="Time">Time</label>
-        </div>
-        <div class="col-md-4 form-input">
-          <input class="form-input--input" type="text" id="Difficulty" required />
-          <label class="form-input--label" for="Difficulty">Difficulty</label>
-        </div>
-
-        <div class="col-md-12 form-input">
-          <input class="form-input--input" type="text" id="Ingredients" required />
-          <label class="form-input--label" for="Ingredients">Ingredients</label>
-        </div>
-        <div class="col-md-12 form-input">
-          <input class="form-input--input" type="text" id="Steps" required />
-          <label class="form-input--label" for="Steps">Steps</label>
-        </div>
-        <div class="col-md-12 form-input">
-          <input class="form-input--input form-input--input__file" type="file" id="Photos" multiple accept="image/x-png,image/gif,image/jpeg" required />
-          <label class="form-input--label active" for="Photos">Photos</label>
-        </div>
-      </div>
-
-      <div class="text-right">
-        <button class="btn btn-primary" type="submit">SUBMIT</button>
-      </div>
-    </form>
-  </section>
-</main>
+      </form>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -57,7 +67,6 @@ export default {};
 </script>
 
 <style lang="scss">
-
 .h1 {
   text-align: left;
 }
@@ -89,18 +98,25 @@ export default {};
   flex-wrap: wrap;
 }
 
-.col-md-4 {
-  flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.col-md-12 {
-  flex-basis: 100%;
-  max-width: 100%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+@media only screen and (min-width: 64em) {
+  .col-md-4 {
+    flex-basis: 33.33333333%;
+    max-width: 33.33333333%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .col-md-12 {
+    flex-basis: 100%;
+    max-width: 100%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
 }
 
 .form-input {
@@ -150,10 +166,10 @@ export default {};
   color: #fff;
   border-radius: 5px;
   line-height: 1.2;
-  padding: .4em;
+  padding: 0.4em;
   width: 10em;
   box-shadow: 0 1px 5px 0 #00000033;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 
   &-primary {
     background-color: hsl(12, 76%, 61%);

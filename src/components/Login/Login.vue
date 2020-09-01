@@ -31,14 +31,22 @@
                 <label class="form-input--label" for="email">User</label>
               </div>
 
+              <!-- <input type="password" name="password" id="password" placeholder="Password" /> -->
               <div class="w-100 form-input">
-                <input class="form-input--input" type="password" name="password" id="password" required />
+                <input
+                  class="form-input--input"
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                />
                 <label class="form-input--label" for="password">Password</label>
               </div>
+              <div class="text-right signUp">
+                <button>Sign up</button>
+              </div>
 
-              <!-- <input type="password" name="password" id="password" placeholder="Password" /> -->
-
-              <button>Login</button>
+              <button class="button">Login</button>
             </form>
           </div>
         </div>
@@ -74,6 +82,7 @@ export default {
 
   &__container {
     width: 300px;
+    max-width: 100%;
     /* height: 400px; */
     margin: 0px auto;
     padding: 3em 2em 3.8em;
@@ -127,7 +136,7 @@ export default {
       // color: #e76f51;
       // font-size: 20px;
       // margin-bottom: 15px;
-      left: .2em;
+      left: 0.2em;
     }
     input {
       width: 100%;
@@ -139,7 +148,7 @@ export default {
       outline: none;
       border-bottom: 2px solid #e76f51;
     }
-    button {
+    .button {
       width: 100%;
       color: white;
       background-color: #e76f51;
@@ -169,6 +178,15 @@ export default {
 
   .w-100 {
     width: 100%;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .signUp {
+    margin-top: -2.5em;
+    margin-bottom: 1em;
+    width: 100%;
+    z-index: 10;
   }
   .google {
     background-color: #dd4b39;
