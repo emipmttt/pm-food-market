@@ -11,13 +11,13 @@
           <div class="modal__body">
             <div class="social">
               <div class="google" href>
-                <img src="../../assets/images/google.svg" />
+                <img src="../../assets/img/google.svg" />
               </div>
               <div class="facebook" href>
-                <img src="../../assets/images/facebook.svg" />
+                <img src="../../assets/img/facebook.svg" />
               </div>
               <div class="twitter" href>
-                <img src="../../assets/images/twitter.svg" />
+                <img src="../../assets/img/twitter.svg" />
               </div>
             </div>
 
