@@ -20,6 +20,18 @@ export default {
 </script>
 
 <style lang="scss">
+
+// para shopping cart podemos usar estas mimas pero cambiandoles 
+// .card {
+//     display: flex;
+//     margin: 10px auto;
+//     width: 600px;
+//     height: 150px;
+//       __image {
+//         width: 200px;
+//         height: 100%;
+//       }
+//     }
 .card {
   display: inline-block;
   margin: 10px;
