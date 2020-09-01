@@ -11,13 +11,13 @@
           <div class="modal__body">
             <div class="social">
               <div class="google" href>
-                <img src="../../assets/images/google.svg" />
+                <img src="../../assets/img/google.svg" />
               </div>
               <div class="facebook" href>
-                <img src="../../assets/images/facebook.svg" />
+                <img src="../../assets/img/facebook.svg" />
               </div>
               <div class="twitter" href>
-                <img src="../../assets/images/twitter.svg" />
+                <img src="../../assets/img/twitter.svg" />
               </div>
             </div>
 
@@ -63,7 +63,7 @@ export default {
     width: 250px;
     height: 400px;
     margin: 0px auto;
-    padding: 20px 30px;
+    padding: 20px 15px;
     background-color: #fff;
     border-radius: 32px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
