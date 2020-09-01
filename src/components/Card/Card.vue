@@ -50,7 +50,7 @@ export default {
   }
 }
 button {
-  padding: 10px;
+  padding: 5px 10px;
   margin-right: 10px;
   background: transparent;
   cursor: pointer;

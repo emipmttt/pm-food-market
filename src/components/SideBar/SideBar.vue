@@ -22,7 +22,7 @@
         <a v-show="showLink" key="5">FAQ</a>
       </transition-group>
     </nav>
-    <Login v-if="showLogin" />
+    <Login v-if="showLogin" @showLog="showLogin = $event" />
     <SignUp v-if="showSignup" />
   </div>
 </template>
@@ -83,6 +83,7 @@ export default {
     padding: 14px;
     height: 100vh;
     top: 0;
+    left: 0;
     z-index: 999;
     background: rgba($color: #fff, $alpha: 0.8);
     backdrop-filter: blur(5px);

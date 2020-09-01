@@ -5,7 +5,9 @@
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Login</slot>
-            <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
+            <button class="modal__header-close">
+              <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
+            </button>
           </div>
 
           <div class="modal__body">
@@ -22,10 +24,19 @@
             </div>
 
             <form class="modal__form" action="/">
-              <label for="user">User</label>
-              <input type="email" name="email" id="email" placeholder="email@example.com" />
+              <!-- <label for="user">User</label> -->
+              <!-- <input type="email" name="email" id="email" placeholder="email@example.com" /> -->
+              <div class="w-100 form-input">
+                <input class="form-input--input" type="email" name="email" id="email" required />
+                <label class="form-input--label" for="email">User</label>
+              </div>
 
-              <input type="password" name="password" id="password" placeholder="Password" />
+              <div class="w-100 form-input">
+                <input class="form-input--input" type="password" name="password" id="password" required />
+                <label class="form-input--label" for="password">Password</label>
+              </div>
+
+              <!-- <input type="password" name="password" id="password" placeholder="Password" /> -->
 
               <button>Login</button>
             </form>
@@ -53,6 +64,8 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
+  animation-duration: 0.6s;
+  animation-name: animatedOpacity;
 
   &__wrapper {
     display: table-cell;
@@ -60,15 +73,16 @@ export default {
   }
 
   &__container {
-    width: 250px;
-    height: 400px;
+    width: 300px;
+    /* height: 400px; */
     margin: 0px auto;
-    padding: 20px 15px;
+    padding: 3em 2em 3.8em;
+    position: relative;
     background-color: #fff;
     border-radius: 32px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
-    font-family: Helvetica, Arial, sans-serif;
+    // font-family: Helvetica, Arial, sans-serif;
   }
 
   &__header {
@@ -76,16 +90,26 @@ export default {
     justify-content: flex-start;
     margin-top: 20px;
     font-size: 32px;
+    font-weight: 700;
+    margin: 0;
 
-    img {
-      position: relative;
-      left: 170px;
-      bottom: 80px;
+    &-close {
+      position: absolute;
+      right: 0;
+      top: -50px;
+      cursor: pointer;
+      background-color: transparent;
+      padding: 0;
+      margin: 0;
       width: 30px;
       height: 30px;
-      background-color: white;
-      border-radius: 100%;
-      cursor: pointer;
+
+      img {
+        background-color: white;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+      }
     }
   }
   &__button {
@@ -100,9 +124,10 @@ export default {
     align-items: flex-start;
     padding-top: 40px;
     label {
-      color: #e76f51;
-      font-size: 20px;
-      margin-bottom: 15px;
+      // color: #e76f51;
+      // font-size: 20px;
+      // margin-bottom: 15px;
+      left: .2em;
     }
     input {
       width: 100%;
@@ -130,16 +155,20 @@ export default {
     div {
       width: 70px;
       height: 30px;
-      border-radius: 5px;
+      border-radius: 4px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
 
       img {
-        width: 25px;
+        width: 20px;
       }
     }
+  }
+
+  .w-100 {
+    width: 100%;
   }
   .google {
     background-color: #dd4b39;
@@ -149,6 +178,16 @@ export default {
   }
   .twitter {
     background-color: #55acee;
+  }
+
+  @keyframes animatedOpacity {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 }
 </style>
