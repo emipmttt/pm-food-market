@@ -5,7 +5,7 @@
       :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`"
     >
       <section class="main-container">
-        <h1 class="h1">Recipes</h1>
+        <h1 class="h1">ingredients</h1>
 
         <form @submit.prevent="upload_json">
           <textarea v-model="json_data" placeholder="JSON Data"></textarea>
@@ -56,12 +56,12 @@ export default {
       var batch = db.batch();
 
       data.forEach((recipe) => {
-        var recipeRef = db.collection("recipes").doc();
+        var recipeRef = db.collection("ingredients").doc();
         batch.set(recipeRef, recipe);
       });
 
       batch.commit().then(function () {
-        alert("Recetas actualizadas correctamente");
+        alert("updated ingredients");
       });
     },
   },
