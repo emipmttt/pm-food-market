@@ -5,7 +5,7 @@
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Sign Up</slot>
-            <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
+            <img @click="$emit('close')" src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
           </div>
 
           <div class="modal__body">
@@ -21,39 +21,80 @@
               </div>
             </div>
 
-            <form class="modal__form" action="/">
-            <div class="row">
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="text" name="FirtsName" id="FirtsName" required />
-                <label class="form-input--label" for="FirtsName">Firts Name</label>
+            <form class="modal__form" @submit.prevent="sign_up">
+              <div class="row">
+                <div class="col-md-6 form-input">
+                  <input
+                    v-model="name"
+                    class="form-input--input"
+                    type="text"
+                    name="FirtsName"
+                    id="FirtsName"
+                    required
+                  />
+                  <label class="form-input--label" for="FirtsName">Firts Name</label>
+                </div>
+                <div class="col-md-6 form-input">
+                  <input
+                    class="form-input--input"
+                    type="text"
+                    name="LastName"
+                    id="LastName"
+                    required
+                  />
+                  <label class="form-input--label" for="LastName">Last Name</label>
+                </div>
+                <div class="col-md-6 form-input">
+                  <input
+                    v-model="birthdate"
+                    class="form-input--input"
+                    type="date"
+                    name="Birthdate"
+                    id="Birthdate"
+                    required
+                  />
+                  <label class="form-input--label active" for="Birthdate">Birthdate</label>
+                </div>
+                <div class="col-md-6 form-input">
+                  <input
+                    v-model="email"
+                    class="form-input--input"
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                  />
+                  <label class="form-input--label" for="email">Email</label>
+                </div>
+                <div class="col-md-6 form-input">
+                  <input
+                    v-model="password"
+                    class="form-input--input"
+                    type="password"
+                    name="Password"
+                    id="Password"
+                    required
+                  />
+                  <label class="form-input--label" for="Password">Password</label>
+                </div>
+                <div class="col-md-6 form-input">
+                  <input
+                    v-model="passwordConfirm"
+                    class="form-input--input"
+                    type="password"
+                    name="ConfirmPassword"
+                    id="ConfirmPassword"
+                    required
+                  />
+                  <label class="form-input--label" for="ConfirmPassword">ConfirmPassword</label>
+                </div>
               </div>
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="text" name="LastName" id="LastName" required />
-                <label class="form-input--label" for="LastName">Last Name</label>
-              </div>
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="date" name="Birthdate" id="Birthdate" required />
-                <label class="form-input--label active" for="Birthdate">Birthdate</label>
-              </div>
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="email" name="email" id="email" required />
-                <label class="form-input--label" for="email">Email</label>
-              </div>
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="password" name="Password" id="Password" required />
-                <label class="form-input--label" for="Password">Password</label>
-              </div>
-              <div class="col-md-6 form-input">
-                <input class="form-input--input" type="password" name="ConfirmPassword" id="ConfirmPassword" required />
-                <label class="form-input--label" for="ConfirmPassword">ConfirmPassword</label>
-              </div>
-            </div>
               <!-- <input type="text" name="email" id="email" placeholder="Firts Name" />
               <input type="text" name="email" id="email" placeholder="Last Name" />
               <input type="date" name="email" id="email" placeholder="Birthdate" />
               <input type="email" name="email" id="email" placeholder="email@example.com" />
               <input type="password" name="email" id="email" placeholder="Password" />
-              <input type="password" name="password" id="password" placeholder="Confirm Password" /> -->
+              <input type="password" name="password" id="password" placeholder="Confirm Password" />-->
 
               <button>Sign Up</button>
             </form>
@@ -65,8 +106,32 @@
 </template>
 
 <script>
+import auth from "@/api/auth";
+import db from "@/api/auth";
 export default {
   name: "SignUp",
+  data() {
+    return {
+      name: "",
+      birthdate: "",
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    };
+  },
+  methods: {
+    async sign_up() {
+      const user = await auth.sign_up(this.email, this.password);
+      const uid = user.user.uid;
+      await db.set("users", uid, {
+        name: this.name,
+        birthdate: this.birthdate,
+        email: this.email,
+      });
+
+      // aquí hacer algo
+    },
+  },
 };
 </script>
 

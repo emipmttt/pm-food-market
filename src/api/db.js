@@ -17,6 +17,21 @@ export default {
         }
     },
 
+    async set(collection, doc, data) {
+        try {
+            var response = await firebase.firestore().collection(collection).doc(doc).set(data);
+            return {
+                success: true,
+                id: response.id
+            }
+        } catch (error) {
+            return {
+                success: false,
+                error
+            }
+        }
+    },
+
     async get(collection, id) {
         try {
             var response = await firebase.firestore().collection(collection).doc(id).get()

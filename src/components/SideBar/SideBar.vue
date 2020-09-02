@@ -22,8 +22,8 @@
         <a v-show="showLink" key="5">FAQ</a>
       </transition-group>
     </nav>
-    <Login v-if="showLogin" @showLog="showLogin = $event" />
-    <SignUp v-if="showSignup" />
+    <Login v-if="showLogin" @close="showLogin = !showLogin" />
+    <SignUp v-if="showSignup" @close="showSignup = !showSignup" />
   </div>
 </template>
 

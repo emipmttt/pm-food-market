@@ -5,35 +5,43 @@
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Login</slot>
-            <button class="modal__header-close">
+            <button @click="$emit('close')" class="modal__header-close">
               <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
             </button>
           </div>
 
           <div class="modal__body">
             <div class="social">
-              <div class="google" href>
+              <div @click="sign_in_google" class="google" href>
                 <img src="../../assets/img/google.svg" />
               </div>
-              <div class="facebook" href>
+              <!-- <div class="facebook" href>
                 <img src="../../assets/img/facebook.svg" />
               </div>
               <div class="twitter" href>
                 <img src="../../assets/img/twitter.svg" />
-              </div>
+              </div>-->
             </div>
 
-            <form class="modal__form" action="/">
+            <form class="modal__form" @submit.prevent="sign_in">
               <!-- <label for="user">User</label> -->
               <!-- <input type="email" name="email" id="email" placeholder="email@example.com" /> -->
               <div class="w-100 form-input">
-                <input class="form-input--input" type="email" name="email" id="email" required />
+                <input
+                  v-model="password"
+                  class="form-input--input"
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                />
                 <label class="form-input--label" for="email">User</label>
               </div>
 
               <!-- <input type="password" name="password" id="password" placeholder="Password" /> -->
               <div class="w-100 form-input">
                 <input
+                  v-model="password"
                   class="form-input--input"
                   type="password"
                   name="password"
@@ -56,8 +64,31 @@
 </template>
 
 <script>
+import auth from "@/api/auth";
+import db from "@/api/db";
 export default {
   name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async sign_in() {
+      const login = await auth.sign_in(this.email, this.password);
+      const uid = login.user.uid;
+      const user = await db.get("users", uid);
+
+      console.log(user);
+
+      // hacer algo aquí
+    },
+
+    async sign_in_google() {
+      console.log(await auth.google_auth());
+    },
+  },
 };
 </script>
 
