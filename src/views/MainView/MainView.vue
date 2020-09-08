@@ -39,6 +39,8 @@ export default {
         .firestore()
         .collection("recipes")
         .limit(16)
+        // para busqueda de etiquetas
+        // .where("ingredients", "array-contains", "chickens")
         .orderBy("n_steps")
         .get();
 
