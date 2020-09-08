@@ -77,12 +77,17 @@ export default {
   methods: {
     async sign_in() {
       const login = await auth.sign_in(this.email, this.password);
+
+      if (!login.success) {
+        return alert(login.error.message);
+      }
+
       const uid = login.user.uid;
       const user = await db.get("users", uid);
 
       console.log(user);
 
-      // hacer algo aquí
+      this.$router.push("/admin");
     },
 
     async sign_in_google() {

@@ -19,12 +19,43 @@ import Card from "../../components/Card/Card";
 import ToggleFilter from "../../components/ToggleFilter/ToggleFilter";
 import Footer from "../../components/Footer/Footer";
 
+import firebase from "@/api/firebase";
+
 export default {
   components: {
     Header,
     Card,
     ToggleFilter,
     Footer,
+  },
+  data() {
+    return {
+      recipes: [],
+    };
+  },
+  methods: {
+    async get_main_recipes() {
+      const recipes_query = await firebase
+        .firestore()
+        .collection("recipes")
+        .limit(16)
+        .orderBy("n_steps")
+        .get();
+
+      var recipes = [];
+
+      recipes_query.forEach((recipe) => {
+        recipes.push({
+          id: recipe.id,
+          ...recipe.data(),
+        });
+      });
+
+      this.recipes = recipes;
+    },
+  },
+  async mounted() {
+    await this.get_main_recipes();
   },
 };
 </script>

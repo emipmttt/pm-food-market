@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header__navbar {
   display: flex;
   justify-content: space-between;
@@ -37,6 +37,7 @@ export default {
     width: 30px;
   }
   &--input {
+    padding: 10px;
     padding-left: 10px;
     align-items: center;
     display: flex;
@@ -47,6 +48,7 @@ export default {
       padding: 0 10px;
       align-self: center;
       width: 20px;
+      height: 20px;
     }
   }
   &--input input {

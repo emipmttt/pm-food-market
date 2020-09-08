@@ -32,9 +32,9 @@ export default {
         }
     },
 
-    async get(collection, id) {
+    async get(collection, doc) {
         try {
-            var response = await firebase.firestore().collection(collection).doc(id).get()
+            var response = await firebase.firestore().collection(collection).doc(doc).get()
 
             if (response.exists) {
 
@@ -63,10 +63,10 @@ export default {
 
     },
 
-    async update(collection, id, data) {
+    async update(collection, doc, data) {
 
         try {
-            await firebase.firestore().collection(collection).doc(id).update(data)
+            await firebase.firestore().collection(collection).doc(doc).update(data)
             return {
                 success: true,
             }
@@ -78,9 +78,9 @@ export default {
         }
     },
 
-    async delete(collection, id) {
+    async delete(collection, doc) {
         try {
-            await firebase.firestore().collection(collection).doc(id).delete();
+            await firebase.firestore().collection(collection).doc(doc).delete();
             return {
                 success: true
             }
