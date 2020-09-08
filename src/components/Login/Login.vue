@@ -66,6 +66,9 @@
 <script>
 import auth from "@/api/auth";
 import db from "@/api/db";
+
+import { mapMutations, mapState } from "vuex";
+
 export default {
   name: "Login",
   data() {
@@ -74,8 +77,16 @@ export default {
       password: "",
     };
   },
+  computed: {
+    ...mapState({
+      user: (state) => state.auth.user,
+    }),
+  },
   methods: {
-    async sign_in() {
+    ...mapMutations({
+      update_state: "auth/update_state",
+    }),
+    async sign_in_email() {
       const login = await auth.sign_in(this.email, this.password);
 
       if (!login.success) {
@@ -83,15 +94,28 @@ export default {
       }
 
       const uid = login.user.uid;
-      const user = await db.get("users", uid);
-
-      console.log(user);
-
-      this.$router.push("/admin");
+      this.sign_in(uid);
     },
 
     async sign_in_google() {
-      console.log(await auth.google_auth());
+      const login = await auth.google_auth();
+
+      if (!login.success) {
+        return alert(login.error.message);
+      }
+
+      const uid = login.data.user.uid;
+
+      this.sign_in(uid);
+    },
+
+    async sign_in(uid) {
+      const user = await db.get("users", uid);
+      if (!user.success) return alert(user.error.message);
+      this.update_state({ propertie: "user", value: user.data });
+      console.log(this.user);
+      if (this.user.admin) this.$router.push("/admin");
+      else this.$emit("close");
     },
   },
 };

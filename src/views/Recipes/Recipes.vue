@@ -79,6 +79,8 @@ export default {
 
 .main-container {
   margin: auto;
+  padding: 10px;
+
   @media only screen and (min-width: 48em) {
     width: 46rem;
   }
