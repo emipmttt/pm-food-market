@@ -7,6 +7,8 @@ import RecipeView from '../views/RecipeView/RecipeView.vue'
 import Recipes from "@/views/Recipes/Recipes"
 import ManageRecipe from "@/views/ManageRecipe/ManageRecipe"
 
+import Admin from "@/views/Admin/Admin"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -28,6 +30,10 @@ const routes = [
     path: "/manage-recipe",
     name: "ManageRecipe",
     component: ManageRecipe
+  },
+  {
+    path: "/administrar",
+    component: Admin
   }
 ]
 
