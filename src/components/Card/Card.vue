@@ -20,9 +20,9 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // para shopping cart podemos usar estas mimas pero cambiandoles
-// .card {
+// .card{
 //     display: flex;
 //     margin: 10px auto;
 //     width: 600px;
