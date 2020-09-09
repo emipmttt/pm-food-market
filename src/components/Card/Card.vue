@@ -1,7 +1,11 @@
 <template>
   <figure class="card">
     <router-link to="/recipeview">
-      <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
+      <img
+        class="card__image"
+        src="http://lorempixel.com/output/food-q-c-640-480-1.jpg"
+        alt
+      />
     </router-link>
     <div class="card__description">
       <p>{{ recipe.name }}</p>
@@ -55,7 +59,8 @@ export default {
   }
   &__description {
     text-align: left;
-    padding: 20px;
+    padding: 15px;
+    height: auto;
 
     p {
       margin: 0;
