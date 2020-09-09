@@ -2,7 +2,7 @@
   <label class="switch" id="toggle">
     <input type="checkbox" />
     <span class="slider round">
-      <p class="category">Chicken</p>
+      <p class="category">{{ recipesTag }}</p>
     </span>
   </label>
 </template>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "ToggleFilter",
+  props: ["recipesTag"],
 };
 </script>
 

@@ -4,10 +4,10 @@
   >
     <Header />
     <section class="toggle-filter-container">
-      <ToggleFilter v-for="i in 8" :key="i" />
+      <ToggleFilter v-for="i in 8" :key="i" :recipesTag="recipes[0].n_steps" />
     </section>
     <section>
-      <Card v-for="i in 16" :key="i" />
+      <Card v-for="recipe in recipes" :key="recipe" :recipeTitle="recipes[0].name" />
     </section>
     <Footer />
   </main>
@@ -44,7 +44,8 @@ export default {
         .orderBy("n_steps")
         .get();
 
-      var recipes = [];
+      let recipes = [];
+      console.log(recipes);
 
       recipes_query.forEach((recipe) => {
         recipes.push({

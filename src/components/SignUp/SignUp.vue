@@ -96,7 +96,7 @@
               <input type="password" name="email" id="email" placeholder="Password" />
               <input type="password" name="password" id="password" placeholder="Confirm Password" />-->
 
-              <button>Sign Up</button>
+              <button type="submit">Sign Up</button>
             </form>
           </div>
         </div>

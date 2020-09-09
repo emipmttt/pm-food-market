@@ -4,7 +4,7 @@
       <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
     </router-link>
     <div class="card__description">
-      <p>Lorem ipsum</p>
+      <p>{{ recipeTitle }}</p>
     </div>
     <div class="card__action">
       <button class="buy">Buy</button>
@@ -16,12 +16,12 @@
 <script>
 export default {
   name: "Card",
+  props: ["recipeTitle"],
 };
 </script>
 
 <style lang="scss">
-
-// para shopping cart podemos usar estas mimas pero cambiandoles 
+// para shopping cart podemos usar estas mimas pero cambiandoles
 // .card {
 //     display: flex;
 //     margin: 10px auto;
