@@ -5,10 +5,10 @@
   >
     <section class="main-container">
       <h1>Manage Recipe</h1>
-      <form>
+      <form @submit.prevent="update">
         <div class="row">
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Title" required />
+            <input v-model="recipe.name" class="form-input--input" type="text" id="Title" required />
             <label class="form-input--label" for="Title">Title</label>
           </div>
           <div class="col-md-4 form-input">
@@ -63,7 +63,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      recipe: {},
+    };
+  },
+  methods: {
+    update() {},
+  },
+  mounted() {},
+};
 </script>
 
 <style lang="scss">
