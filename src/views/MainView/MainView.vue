@@ -4,10 +4,10 @@
   >
     <Header />
     <section class="toggle-filter-container">
-      <ToggleFilter v-for="i in 8" :key="i" :recipesTag="recipes[0].n_steps" />
+      <ToggleFilter v-for="(tag, index) in tags" :key="index" :tag="tag" />
     </section>
     <section>
-      <Card v-for="recipe in recipes" :key="recipe" :recipeTitle="recipes[0].name" />
+      <Card v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
     </section>
     <Footer />
   </main>
@@ -30,6 +30,13 @@ export default {
   },
   data() {
     return {
+      tags: [
+        "occasion",
+        "breakfast",
+        "eggs-dairy",
+        "brunch",
+        "4-hours-or-less",
+      ],
       recipes: [],
     };
   },
