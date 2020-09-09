@@ -39,7 +39,7 @@ export default {
             if (response.exists) {
 
                 return {
-                    succes: true,
+                    success: true,
                     data: {
                         ...response.data(),
                         id: response.id

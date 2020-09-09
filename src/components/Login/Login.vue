@@ -23,19 +23,19 @@
               </div>-->
             </div>
 
-            <form class="modal__form" @submit.prevent="sign_in">
+            <form class="modal__form" @submit.prevent="sign_in_email">
               <!-- <label for="user">User</label> -->
               <!-- <input type="email" name="email" id="email" placeholder="email@example.com" /> -->
               <div class="w-100 form-input">
                 <input
-                  v-model="password"
+                  v-model="email"
                   class="form-input--input"
                   type="email"
                   name="email"
                   id="email"
                   required
                 />
-                <label class="form-input--label" for="email">User</label>
+                <label class="form-input--label" for="email">Email</label>
               </div>
 
               <!-- <input type="password" name="password" id="password" placeholder="Password" /> -->
@@ -50,11 +50,8 @@
                 />
                 <label class="form-input--label" for="password">Password</label>
               </div>
-              <div class="text-right signUp">
-                <button>Sign up</button>
-              </div>
-
               <button class="button">Login</button>
+              <button class="button">Sign Up</button>
             </form>
           </div>
         </div>
@@ -66,6 +63,9 @@
 <script>
 import auth from "@/api/auth";
 import db from "@/api/db";
+
+import { mapMutations, mapState } from "vuex";
+
 export default {
   name: "Login",
   data() {
@@ -74,24 +74,45 @@ export default {
       password: "",
     };
   },
+  computed: {
+    ...mapState({
+      user: (state) => state.auth.user,
+    }),
+  },
   methods: {
-    async sign_in() {
+    ...mapMutations({
+      update_state: "auth/update_state",
+    }),
+    async sign_in_email() {
       const login = await auth.sign_in(this.email, this.password);
+
+      if (!login.user) {
+        return alert(login.error.message);
+      }
+
+      const uid = login.user.uid;
+      this.sign_in(uid);
+    },
+
+    async sign_in_google() {
+      const login = await auth.google_auth();
 
       if (!login.success) {
         return alert(login.error.message);
       }
 
-      const uid = login.user.uid;
-      const user = await db.get("users", uid);
+      const uid = login.data.user.uid;
 
-      console.log(user);
-
-      this.$router.push("/admin");
+      this.sign_in(uid);
     },
 
-    async sign_in_google() {
-      console.log(await auth.google_auth());
+    async sign_in(uid) {
+      const user = await db.get("users", uid);
+      if (!user.success) return alert(user.error.message);
+      this.update_state({ propertie: "user", value: user.data });
+      console.log(this.user);
+      if (this.user.admin) this.$router.push("/admin");
+      else this.$emit("close");
     },
   },
 };

@@ -10,7 +10,7 @@
 
           <div class="modal__body">
             <div class="social">
-              <div class="google" href>
+              <div class="google" @click="sign_up_google">
                 <img src="../../assets/img/google.svg" />
               </div>
               <div class="facebook" href>
@@ -21,7 +21,7 @@
               </div>
             </div>
 
-            <form class="modal__form" @submit.prevent="sign_up">
+            <form class="modal__form" @submit.prevent="sign_up_email">
               <div class="row">
                 <div class="col-md-6 form-input">
                   <input
@@ -107,7 +107,9 @@
 
 <script>
 import auth from "@/api/auth";
-import db from "@/api/auth";
+import db from "@/api/db";
+
+import { mapMutations } from "vuex";
 export default {
   name: "SignUp",
   data() {
@@ -120,16 +122,48 @@ export default {
     };
   },
   methods: {
-    async sign_up() {
-      const user = await auth.sign_up(this.email, this.password);
-      const uid = user.user.uid;
-      await db.set("users", uid, {
-        name: this.name,
-        birthdate: this.birthdate,
-        email: this.email,
-      });
+    ...mapMutations({
+      update_state: "auth/update_state",
+    }),
+    async sign_up_google() {
+      const login = await auth.google_auth();
+      if (!login.success) {
+        return alert(login.error.message);
+      }
+      const uid = login.data.user.uid;
+      this.name = login.data.user.displayName;
+      this.email = login.data.user.email;
+      this.sign_up(uid);
+    },
+    async sign_up_email() {
+      const login = await auth.sign_up(this.email, this.password);
+      if (!login.user) {
+        return alert(login.error.message);
+      }
+      const uid = login.user.uid;
+      this.sign_up(uid);
+    },
+    async sign_up(uid) {
+      try {
+        await db.set("users", uid, {
+          name: this.name,
+          birthdate: this.birthdate,
+          email: this.email,
+          admin: false,
+        });
 
-      // aquí hacer algo
+        this.update_state({
+          uid: uid,
+          name: this.name,
+          birthdate: this.birthdate,
+          email: this.email,
+          admin: false,
+        });
+      } catch (error) {
+        return alert(error.message);
+      }
+      alert("Regístro satisfactorio");
+      return this.$emit("close");
     },
   },
 };

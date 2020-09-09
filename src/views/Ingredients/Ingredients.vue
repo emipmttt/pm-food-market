@@ -5,7 +5,7 @@
       :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`"
     >
       <section class="main-container">
-        <h1 class="h1">ingredients</h1>
+        <h1 class="h1">Ingredients</h1>
 
         <form @submit.prevent="upload_json">
           <textarea v-model="json_data" placeholder="JSON Data"></textarea>
