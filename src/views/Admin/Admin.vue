@@ -5,7 +5,7 @@
       <router-link class="admin-layout__nav__link" to="/admin/ingredients">Ingredients</router-link>
     </aside>
     <div class="admin-layout__contain">
-      <router-view></router-view>
+      <router-view />
     </div>
   </div>
 </template>

@@ -21,7 +21,7 @@
               </div>
             </div>
 
-            <form class="modal__form" @submit.prevent="sign_up">
+            <form class="modal__form" @submit.prevent="sign_up_email">
               <div class="row">
                 <div class="col-md-6 form-input">
                   <input
@@ -137,7 +137,7 @@ export default {
     },
     async sign_up_email() {
       const login = await auth.sign_up(this.email, this.password);
-      if (!login.success) {
+      if (!login.user) {
         return alert(login.error.message);
       }
       const uid = login.user.uid;
@@ -162,8 +162,8 @@ export default {
       } catch (error) {
         return alert(error.message);
       }
-
-      this.$emit("close");
+      alert("Regístro satisfactorio");
+      return this.$emit("close");
     },
   },
 };
