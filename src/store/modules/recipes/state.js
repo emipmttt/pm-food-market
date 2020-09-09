@@ -1,5 +1,5 @@
 export default () => ({
 
-    user: {}
+    recipe_edit: {}
 
 })

@@ -23,6 +23,11 @@ export default {
 <style lang="scss" scoped>
 // para shopping cart podemos usar estas mimas pero cambiandoles
 // .card{
+//=======
+//<style lang="scss">
+// para shopping cart podemos usar estas mimas pero cambiandoles
+// .card {
+//>>>>>>> d0f3e70eb13b56c2d147920ffe80b8f9aa14292d
 //     display: flex;
 //     margin: 10px auto;
 //     width: 600px;

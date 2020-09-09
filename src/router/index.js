@@ -7,6 +7,10 @@ import RecipeView from '../views/RecipeView/RecipeView.vue'
 import Recipes from "@/views/Recipes/Recipes"
 import ManageRecipe from "@/views/ManageRecipe/ManageRecipe"
 
+import Ingredients from "@/views/Ingredients/Ingredients"
+
+import Admin from "@/views/Admin/Admin"
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,15 +23,28 @@ const routes = [
     path: '/recipeview',
     name: 'RecipeView',
     component: RecipeView
-  }, {
-    path: '/recipes',
-    name: "Recipes",
-    component: Recipes
   },
   {
     path: "/manage-recipe",
     name: "ManageRecipe",
     component: ManageRecipe
+  },
+  {
+    path: "/admin",
+    component: Admin,
+    redirect: "/admin/recipes",
+    children: [
+      {
+        path: 'recipes',
+        name: "Recipes",
+        component: Recipes
+      },
+      {
+        path: 'ingredients',
+        name: "Ingredients",
+        component: Ingredients
+      }
+    ]
   }
 ]
 
