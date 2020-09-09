@@ -15,7 +15,7 @@
 
         <table class="recipe-table">
           <tbody>
-            <tr v-for="recipe in this.recipes" :key="recipe.id">
+            <tr v-for="recipe in recipes" :key="recipe.id">
               <td>{{recipe.name}}</td>
               <td>
                 <router-link to="/manage-recipe" class="recipe-table--btn">
@@ -43,6 +43,7 @@ export default {
   data() {
     return {
       json_data: "",
+      recipes: [],
     };
   },
   components: {
