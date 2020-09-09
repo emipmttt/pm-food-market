@@ -19,7 +19,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 // para shopping cart podemos usar estas mimas pero cambiandoles 
 // .card {

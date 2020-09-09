@@ -15,13 +15,15 @@
 
         <table class="recipe-table">
           <tbody>
-            <tr v-for="i in 8" :key="i">
-              <td>cooking recipe</td>
+            <tr v-for="recipe in this.recipes" :key="recipe.id">
+              <td>{{recipe.name}}</td>
               <td>
-                <router-link to="/manage-recipe">
-                  <!-- <span class="material-icons">edit</span> -->
+                <router-link to="/manage-recipe" class="recipe-table--btn">
                   <img src="../../assets/img/edit.svg" />
                 </router-link>
+                <button class="recipe-table--btn">
+                  <img src="../../assets/img/delete.svg" />
+                </button>
               </td>
             </tr>
           </tbody>
@@ -64,6 +66,27 @@ export default {
         alert("Recetas actualizadas correctamente");
       });
     },
+    async get_main_recipes() {
+      const recipes_query = await firebase
+        .firestore()
+        .collection("recipes")
+        .orderBy("n_steps")
+        .get();
+
+      var recipes = [];
+
+      recipes_query.forEach((recipe) => {
+        recipes.push({
+          id: recipe.id,
+          ...recipe.data(),
+        });
+      });
+
+      this.recipes = recipes;
+    },
+  },
+  async mounted() {
+    await this.get_main_recipes();
   },
 };
 </script>
@@ -104,6 +127,16 @@ export default {
     &:last-child {
       text-align: right;
     }
+  }
+
+  &--btn {
+    display: inline-block;
+    margin-left: 0.5em;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.4em;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
 }
 </style>
