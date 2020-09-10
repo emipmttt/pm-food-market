@@ -70,6 +70,7 @@ export default {
       recipe: {},
 
       name: "",
+      tags: "",
     };
   },
   computed: {
@@ -81,8 +82,11 @@ export default {
     update() {},
   },
   mounted() {
-    console.log(this.recipe_edit);
-    this.name = this.recipe_edit.name;
+    if (this.$route.params.type == "edit") {
+      this.name = this.recipe_edit.name;
+      this.tags = this.recipe_edit.tags.join(",");
+      // para guardar necesitaras regresarlo a array se usa *.split(",")*
+    }
   },
 };
 </script>

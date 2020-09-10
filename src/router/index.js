@@ -25,11 +25,6 @@ const routes = [
     component: RecipeView
   },
   {
-    path: "/manage-recipe/:type",
-    name: "ManageRecipe",
-    component: ManageRecipe
-  },
-  {
     path: "/admin",
     component: Admin,
     redirect: "/admin/recipes",
@@ -43,7 +38,12 @@ const routes = [
         path: 'ingredients',
         name: "Ingredients",
         component: Ingredients
-      }
+      },
+      {
+        path: "/manage-recipe/:type",
+        name: "ManageRecipe",
+        component: ManageRecipe
+      },
     ]
   }
 ]
