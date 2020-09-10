@@ -8,7 +8,7 @@
       <form @submit.prevent="update">
         <div class="row">
           <div class="col-md-4 form-input">
-            <input v-model="recipe.name" class="form-input--input" type="text" id="Title" required />
+            <input v-model="name" class="form-input--input" type="text" id="Title" required />
             <label class="form-input--label" for="Title">Title</label>
           </div>
           <div class="col-md-4 form-input">
@@ -63,16 +63,27 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {
       recipe: {},
+
+      name: "",
     };
+  },
+  computed: {
+    ...mapState({
+      recipe_edit: (state) => state.recipes.recipe_edit,
+    }),
   },
   methods: {
     update() {},
   },
-  mounted() {},
+  mounted() {
+    console.log(this.recipe_edit);
+    this.name = this.recipe_edit.name;
+  },
 };
 </script>
 

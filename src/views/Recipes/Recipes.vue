@@ -18,9 +18,9 @@
             <tr v-for="recipe in recipes" :key="recipe.id">
               <td>{{recipe.name}}</td>
               <td>
-                <router-link to="/manage-recipe" class="recipe-table--btn">
+                <button @click="editRecipe(recipe)" class="recipe-table--btn">
                   <img src="../../assets/img/edit.svg" />
-                </router-link>
+                </button>
                 <button class="recipe-table--btn" @click="deleteRecipe(recipe)">
                   <img src="../../assets/img/delete.svg" />
                 </button>
@@ -38,7 +38,9 @@
 import firebase from "@/api/firebase";
 // import AdminSideNav from "@/components/AdminSideNav/AdminSideNav";
 import Footer from "../../components/Footer/Footer";
-import db from "@/api/db"
+import db from "@/api/db";
+
+import { mapMutations } from "vuex";
 
 export default {
   data() {
@@ -52,6 +54,9 @@ export default {
     Footer,
   },
   methods: {
+    ...mapMutations({
+      update_state: "recipes/update_state",
+    }),
     upload_json() {
       const data = JSON.parse(this.json_data);
 
@@ -88,14 +93,25 @@ export default {
     },
     deleteRecipe(recipe) {
       // console.log(recipe['id'])
-      db.delete("recipes", recipe.id).then(response=>{
-        // console.log(response)
-        // console.log('Eliminó')
-        this.get_main_recipes()
-      })
-      .catch((error)=>{
-          console.log(error)
+      db.delete("recipes", recipe.id)
+        .then((response) => {
+          console.log(response);
+          // console.log('Eliminó')
+          this.get_main_recipes();
         })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    editRecipe(recipe) {
+      var data = {
+        propertie: "recipe_edit",
+        value: recipe,
+      };
+
+      this.update_state(data);
+
+      this.$router.push("/manage-recipe");
     },
   },
   async mounted() {
