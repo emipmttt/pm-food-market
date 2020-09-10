@@ -1,5 +1,5 @@
 <template>
-  <label class="switch" id="toggle">
+  <label @click="$emit('change')" class="switch">
     <input type="checkbox" />
     <span class="slider round">
       <p class="category">{{ tag }}</p>
