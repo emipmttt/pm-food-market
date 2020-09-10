@@ -4,7 +4,7 @@
   >
     <Header />
     <section class="toggle-filter-container">
-      <ToggleFilter v-for="(tag, index) in tags" :key="index" :tag="tag" />
+      <ToggleFilter @change="12" v-for="(tag, index) in tags" :key="index" :tag="tag" />
     </section>
     <section>
       <Card v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />

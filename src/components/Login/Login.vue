@@ -15,10 +15,10 @@
               <div @click="sign_in_google" class="google" href>
                 <img src="../../assets/img/google.svg" />
               </div>
-              <!-- <div class="facebook" href>
+              <!-- <div class="facebook">
                 <img src="../../assets/img/facebook.svg" />
               </div>
-              <div class="twitter" href>
+              <div class="twitter">
                 <img src="../../assets/img/twitter.svg" />
               </div>-->
             </div>
