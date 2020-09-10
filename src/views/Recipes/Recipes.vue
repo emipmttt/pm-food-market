@@ -21,7 +21,7 @@
                 <router-link to="/manage-recipe" class="recipe-table--btn">
                   <img src="../../assets/img/edit.svg" />
                 </router-link>
-                <button class="recipe-table--btn">
+                <button class="recipe-table--btn" @click="deleteRecipe(recipe)">
                   <img src="../../assets/img/delete.svg" />
                 </button>
               </td>
@@ -38,6 +38,7 @@
 import firebase from "@/api/firebase";
 // import AdminSideNav from "@/components/AdminSideNav/AdminSideNav";
 import Footer from "../../components/Footer/Footer";
+import db from "@/api/db"
 
 export default {
   data() {
@@ -85,6 +86,17 @@ export default {
 
       this.recipes = recipes;
     },
+    deleteRecipe(recipe) {
+      // console.log(recipe['id'])
+      db.delete("recipes", recipe.id).then(response=>{
+        // console.log(response)
+        // console.log('Eliminó')
+        this.get_main_recipes()
+      })
+      .catch((error)=>{
+          console.log(error)
+        })
+    },
   },
   async mounted() {
     await this.get_main_recipes();
@@ -105,6 +117,7 @@ export default {
   margin: auto;
   padding: 10px;
 
+  max-width: 100%;
   @media only screen and (min-width: 48em) {
     width: 46rem;
   }

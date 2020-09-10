@@ -57,6 +57,7 @@ export default {};
 
 .main-container {
   margin: auto;
+  max-width: 100%;
   @media only screen and (min-width: 48em) {
     width: 46rem;
   }
