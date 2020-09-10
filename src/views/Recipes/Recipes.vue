@@ -31,6 +31,7 @@
       </section>
     </main>
     <Footer />
+    <div @click="create_recipe" class="float-button">+</div>
   </div>
 </template>
 
@@ -111,7 +112,10 @@ export default {
 
       this.update_state(data);
 
-      this.$router.push("/manage-recipe");
+      this.$router.push("/manage-recipe/edit");
+    },
+    create_recipe() {
+      this.$router.push("/manage-recipe/create");
     },
   },
   async mounted() {

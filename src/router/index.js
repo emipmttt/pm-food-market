@@ -25,7 +25,7 @@ const routes = [
     component: RecipeView
   },
   {
-    path: "/manage-recipe",
+    path: "/manage-recipe/:type",
     name: "ManageRecipe",
     component: ManageRecipe
   },

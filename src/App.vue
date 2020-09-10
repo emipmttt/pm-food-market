@@ -4,19 +4,19 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/recipes">recipes</router-link>
-    </div> -->
-    <router-view/>
+    </div>-->
+    <router-view />
   </div>
 </template>
 
 <style lang="scss">
+@import "./assets/css/components/btn.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
-
 
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;

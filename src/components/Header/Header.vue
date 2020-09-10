@@ -37,6 +37,7 @@ export default {
     width: 30px;
   }
   &--input {
+    background: white;
     padding: 10px;
     padding-left: 10px;
     align-items: center;

@@ -9,7 +9,6 @@
               <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
             </button>
           </div>
-
           <div class="modal__body">
             <div class="social">
               <div @click="sign_in_google" class="google" href>
