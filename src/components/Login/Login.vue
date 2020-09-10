@@ -15,12 +15,12 @@
               <div @click="sign_in_google" class="google" href>
                 <img src="../../assets/img/google.svg" />
               </div>
-              <!-- <div class="facebook" href>
+              <div @click="sign_in_facebook" class="facebook" href>
                 <img src="../../assets/img/facebook.svg" />
               </div>
-              <div class="twitter" href>
+              <!-- <div class="twitter" href>
                 <img src="../../assets/img/twitter.svg" />
-              </div>-->
+              </div> -->
             </div>
 
             <form class="modal__form" @submit.prevent="sign_in_email">
@@ -100,10 +100,21 @@ export default {
       if (!login.success) {
         return alert(login.error.message);
       }
-
       const uid = login.data.user.uid;
 
       this.sign_in(uid);
+    },
+    async sign_in_facebook(){
+
+       const loginFB = await auth.facebook_auth();
+
+       if (!loginFB.success) {
+        return alert(loginFB.error.message);
+      }
+      const uid = loginFB.user.uid;
+
+      this.sign_in(uid);
+
     },
 
     async sign_in(uid) {
