@@ -1,16 +1,11 @@
 <template>
   <div>
     <Header />
-    <section class="recipeView">
+    <section v-if="recipe" class="recipeView">
       <article>
-        <h2>Salad</h2>
+        <h2>{{recipe.name}}</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         {{recipe.steps}}
         </p>
         <div class="galery">
           <div class="galery__main">
@@ -156,6 +151,10 @@ export default {
   components: {
     Header,
   },
+  created(){
+
+    this.recipe = this.$route.params.data;
+  },
 
   // definir métodos bajo el objeto `methods`
   methods: {
@@ -196,10 +195,9 @@ p {
 h2 {
   display: flex;
   align-items: center;
-  text-align: right;
+  text-align: left;
   font-weight: bold;
   font-size: 49.6px;
-  line-height: 62px;
   margin-top: 0px;
 }
 .recipeView {

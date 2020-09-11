@@ -1,9 +1,10 @@
 <template>
   <figure class="card">
-    <router-link to="/recipeview">
+    <div @click="goRecipeView()">
       <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
-    </router-link>
+    </div> 
     <div class="card__description">
+    
       <p>{{ recipe.name }}</p>
     </div>
     <div class="card__action">
@@ -17,6 +18,14 @@
 export default {
   name: "Card",
   props: ["recipe"],
+  methods: {
+    goRecipeView(){
+      this.$router.push({ name: 'RecipeView', params: { data: this.recipe}})
+    }
+    
+  },
+
+  
 };
 </script>
 
