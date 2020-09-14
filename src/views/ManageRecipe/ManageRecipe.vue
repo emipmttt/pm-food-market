@@ -11,34 +11,34 @@
             <input v-model="name" class="form-input--input" type="text" id="Title" required />
             <label class="form-input--label" for="Title">Title</label>
           </div>
-          <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Description" required />
+          <!-- <div class="col-md-4 form-input">
+            <input v-model="description" class="form-input--input" type="text" id="Description" required />
             <label class="form-input--label" for="Description">Description</label>
-          </div>
-          <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Price" required />
+          </div> -->
+          <!-- <div class="col-md-4 form-input">
+            <input v-model="price" class="form-input--input" type="text" id="Price" required />
             <label class="form-input--label" for="Price">Price</label>
-          </div>
+          </div> -->
 
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Tags" required />
+            <input v-model="tags" class="form-input--input" type="text" id="Tags" required />
             <label class="form-input--label" for="Tags">Tags</label>
           </div>
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Time" required />
+            <input v-model="minutes" class="form-input--input" type="text" id="Time" required />
             <label class="form-input--label" for="Time">Time</label>
           </div>
-          <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Difficulty" required />
+          <!-- <div class="col-md-4 form-input">
+            <input v-model="sifficulty" class="form-input--input" type="text" id="Difficulty" required />
             <label class="form-input--label" for="Difficulty">Difficulty</label>
-          </div>
+          </div> -->
 
           <div class="col-md-12 form-input">
-            <input class="form-input--input" type="text" id="Ingredients" required />
+            <input v-model="ingredients" class="form-input--input" type="text" id="Ingredients" required />
             <label class="form-input--label" for="Ingredients">Ingredients</label>
           </div>
           <div class="col-md-12 form-input">
-            <input class="form-input--input" type="text" id="Steps" required />
+            <input v-model="steps" class="form-input--input" type="text" id="Steps" required />
             <label class="form-input--label" for="Steps">Steps</label>
           </div>
           <div class="col-md-12 form-input">
@@ -71,6 +71,9 @@ export default {
 
       name: "",
       tags: "",
+      minutes: "",
+      ingredients: "",
+      steps: ""
     };
   },
   computed: {
@@ -85,6 +88,9 @@ export default {
     if (this.$route.params.type == "edit") {
       this.name = this.recipe_edit.name;
       this.tags = this.recipe_edit.tags.join(",");
+      this.minutes = this.recipe_edit.minutes;
+      this.ingredients = this.recipe_edit.ingredients.join(",");
+      this.steps = this.recipe_edit.steps;
       // para guardar necesitaras regresarlo a array se usa *.split(",")*
     }
   },
