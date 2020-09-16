@@ -20,6 +20,9 @@ export default {
   components: {
     SideBar,
   },
+  data() {
+    return {};
+  },
 };
 </script>
 
@@ -65,4 +68,4 @@ export default {
     width: 30px;
   }
 }
-</style> 
+</style>

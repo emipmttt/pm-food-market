@@ -1,7 +1,11 @@
 <template>
   <figure class="card">
     <router-link to="/recipeview">
-      <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
+      <img
+        class="card__image"
+        src="http://lorempixel.com/output/food-q-c-640-480-1.jpg"
+        alt
+      />
     </router-link>
     <div class="card__description">
       <p>{{ recipe.name }}</p>
@@ -20,9 +24,14 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+// para shopping cart podemos usar estas mimas pero cambiandoles
+// .card{
+//=======
+//<style lang="scss">
 // para shopping cart podemos usar estas mimas pero cambiandoles
 // .card {
+//>>>>>>> d0f3e70eb13b56c2d147920ffe80b8f9aa14292d
 //     display: flex;
 //     margin: 10px auto;
 //     width: 600px;
@@ -50,7 +59,8 @@ export default {
   }
   &__description {
     text-align: left;
-    padding: 20px;
+    padding: 15px;
+    height: auto;
 
     p {
       margin: 0;

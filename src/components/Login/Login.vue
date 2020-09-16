@@ -63,6 +63,8 @@
 import auth from "@/api/auth";
 import db from "@/api/db";
 
+import swal from "sweetalert";
+
 import { mapMutations, mapState } from "vuex";
 
 export default {
@@ -86,7 +88,11 @@ export default {
       const login = await auth.sign_in(this.email, this.password);
 
       if (!login.user) {
-        return alert(login.error.message);
+        return swal({
+          title: "Something went wrong!",
+          text: `${login.error.message}`,
+          icon: "error",
+        });
       }
 
       const uid = login.user.uid;
@@ -97,7 +103,11 @@ export default {
       const login = await auth.google_auth();
 
       if (!login.success) {
-        return alert(login.error.message);
+        return swal({
+          title: "Something was wrong!",
+          text: `${login.error.message}`,
+          icon: "error",
+        });
       }
 
       const uid = login.data.user.uid;

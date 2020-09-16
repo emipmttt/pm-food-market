@@ -5,7 +5,10 @@
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Sign Up</slot>
-            <img @click="$emit('close')" src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
+            <img
+              @click="$emit('close')"
+              src="https://img.icons8.com/ios/50/000000/xbox-x.png"
+            />
           </div>
 
           <div class="modal__body">
@@ -32,7 +35,9 @@
                     id="FirtsName"
                     required
                   />
-                  <label class="form-input--label" for="FirtsName">Firts Name</label>
+                  <label class="form-input--label" for="FirtsName"
+                    >Firts Name</label
+                  >
                 </div>
                 <div class="col-md-6 form-input">
                   <input
@@ -42,7 +47,9 @@
                     id="LastName"
                     required
                   />
-                  <label class="form-input--label" for="LastName">Last Name</label>
+                  <label class="form-input--label" for="LastName"
+                    >Last Name</label
+                  >
                 </div>
                 <div class="col-md-6 form-input">
                   <input
@@ -53,7 +60,9 @@
                     id="Birthdate"
                     required
                   />
-                  <label class="form-input--label active" for="Birthdate">Birthdate</label>
+                  <label class="form-input--label active" for="Birthdate"
+                    >Birthdate</label
+                  >
                 </div>
                 <div class="col-md-6 form-input">
                   <input
@@ -75,7 +84,9 @@
                     id="Password"
                     required
                   />
-                  <label class="form-input--label" for="Password">Password</label>
+                  <label class="form-input--label" for="Password"
+                    >Password</label
+                  >
                 </div>
                 <div class="col-md-6 form-input">
                   <input
@@ -86,7 +97,9 @@
                     id="ConfirmPassword"
                     required
                   />
-                  <label class="form-input--label" for="ConfirmPassword">ConfirmPassword</label>
+                  <label class="form-input--label" for="ConfirmPassword"
+                    >ConfirmPassword</label
+                  >
                 </div>
               </div>
               <!-- <input type="text" name="email" id="email" placeholder="Firts Name" />
@@ -109,6 +122,8 @@
 import auth from "@/api/auth";
 import db from "@/api/db";
 
+import swal from "sweetalert";
+
 import { mapMutations } from "vuex";
 export default {
   name: "SignUp",
@@ -128,7 +143,11 @@ export default {
     async sign_up_google() {
       const login = await auth.google_auth();
       if (!login.success) {
-        return alert(login.error.message);
+        return swal({
+          title: "Something was wrong!",
+          text: `${login.error.message}`,
+          icon: "error",
+        });
       }
       const uid = login.data.user.uid;
       this.name = login.data.user.displayName;
@@ -138,7 +157,11 @@ export default {
     async sign_up_email() {
       const login = await auth.sign_up(this.email, this.password);
       if (!login.user) {
-        return alert(login.error.message);
+        return swal({
+          title: "Something was wrong!",
+          text: `${login.error.message}`,
+          icon: "error",
+        });
       }
       const uid = login.user.uid;
       this.sign_up(uid);
@@ -160,9 +183,16 @@ export default {
           admin: false,
         });
       } catch (error) {
-        return alert(error.message);
+        return swal({
+          title: "Something was wrong!",
+          text: `${error.message}`,
+          icon: "error",
+        });
       }
-      alert("Regístro satisfactorio");
+      swal({
+        title: "Successful sign up",
+        icon: "success",
+      });
       return this.$emit("close");
     },
   },
