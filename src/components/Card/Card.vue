@@ -1,14 +1,10 @@
 <template>
   <figure class="card">
     <router-link to="/recipeview">
-      <img
-        class="card__image"
-        src="http://lorempixel.com/output/food-q-c-640-480-1.jpg"
-        alt
-      />
+      <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
     </router-link>
     <div class="card__description">
-      <p>{{ recipe.name }}</p>
+      <h2>{{ recipe.name }}</h2>
     </div>
     <div class="card__action">
       <button class="buy">Buy</button>
@@ -59,11 +55,13 @@ export default {
   }
   &__description {
     text-align: left;
-    padding: 15px;
-    height: auto;
+    padding: 10px;
+    height: 60px;
 
-    p {
+    h2 {
       margin: 0;
+      font-size: 1em;
+      text-transform: capitalize;
     }
   }
   &__action {
@@ -76,9 +74,20 @@ button {
   margin-right: 10px;
   background: transparent;
   cursor: pointer;
-  color: #e76f51;
   font-size: 16px;
   line-height: 20px;
   border: none;
+  outline: none;
+}
+.buy {
+  background-color: #e76f51;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 2px rgba(231, 111, 81, 0.5);
+}
+.add {
+  border: 1px solid #e76f51;
+  border-radius: 5px;
+  color: #2c3e50;
 }
 </style>
