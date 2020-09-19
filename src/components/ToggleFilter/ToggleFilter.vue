@@ -2,8 +2,8 @@
   <label @click="$emit('change')" class="switch">
     <input type="checkbox" />
     <span class="slider round">
-      <p class="category">{{ tag }}</p>
     </span>
+    <p class="category">{{ tag }}</p>
   </label>
 </template>
 
@@ -18,7 +18,7 @@ export default {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 110px;
   height: 110px;
   margin: 20px;
 }
@@ -30,6 +30,8 @@ export default {
 }
 
 .slider {
+  width: 60px;
+  margin: auto;
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -78,8 +80,10 @@ input:checked + .slider:before {
 
 .category {
   margin: 0;
-  padding-top: 70px;
+  padding-top: 95px;
   text-align: center;
-  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 14px;
 }
 </style>
