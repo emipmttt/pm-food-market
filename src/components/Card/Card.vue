@@ -62,6 +62,9 @@ export default {
       margin: 0;
       font-size: 1em;
       text-transform: capitalize;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   &__action {
