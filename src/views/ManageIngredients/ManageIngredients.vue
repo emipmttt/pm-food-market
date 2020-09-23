@@ -12,11 +12,21 @@
             <label class="form-input--label" for="Name">Name</label>
           </div>
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="unitName" required />
+            <input
+              class="form-input--input"
+              type="text"
+              id="unitName"
+              required
+            />
             <label class="form-input--label" for="unitName">Unit Name</label>
           </div>
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Description" required />
+            <input
+              class="form-input--input"
+              type="text"
+              id="Description"
+              required
+            />
             <label class="form-input--label" for="unitPrice">Unit Price</label>
           </div>
           <div class="col-md-4 form-input">
@@ -25,8 +35,15 @@
           </div>
 
           <div class="col-md-4 form-input">
-            <input class="form-input--input" type="text" id="Description" required />
-            <label class="form-input--label" for="Description">Description</label>
+            <input
+              class="form-input--input"
+              type="text"
+              id="Description"
+              required
+            />
+            <label class="form-input--label" for="Description"
+              >Description</label
+            >
           </div>
           <div class="col-md-4 form-input">
             <input class="form-input--input" type="text" id="Stock" required />

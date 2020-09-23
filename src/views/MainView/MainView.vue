@@ -1,12 +1,15 @@
 <template>
   <main
-    :style="
-      `background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: auto 60%`
-    "
+    :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: auto 60%`"
   >
     <Header />
     <section class="toggle-filter-container">
-      <ToggleFilter @change="12" v-for="(tag, index) in tags" :key="index" :tag="tag" />
+      <ToggleFilter
+        @change="12"
+        v-for="(tag, index) in tags"
+        :key="index"
+        :tag="tag"
+      />
     </section>
     <section>
       <Card v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
@@ -32,13 +35,7 @@ export default {
   },
   data() {
     return {
-      tags: [
-        "Breakfast",
-        "Lunch",
-        "Dinner",
-        "Vegetarian",
-        "Dessert",
-      ],
+      tags: ["Breakfast", "Lunch", "Dinner", "Vegetarian", "Dessert"],
       recipes: [],
     };
   },

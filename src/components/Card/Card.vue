@@ -1,7 +1,10 @@
 <template>
   <figure class="card">
+    <div class="card__header">
+      <img :src="require('@/assets/icons/favorite.svg')" />
+    </div>
     <router-link to="/recipeview">
-      <img class="card__image" src="http://lorempixel.com/output/food-q-c-640-480-1.jpg" alt />
+      <img class="card__image" :src="recipe.url.split(',')[0]" alt />
     </router-link>
     <div class="card__description">
       <h2>{{ recipe.name }}</h2>
@@ -17,6 +20,7 @@
 export default {
   name: "Card",
   props: ["recipe"],
+  methods: {},
 };
 </script>
 
@@ -45,6 +49,12 @@ export default {
   border-radius: 16px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
   background: #fff;
+
+  &__header {
+    position: absolute;
+    padding: 10px;
+  }
+
   &__image {
     display: block;
     object-fit: cover;
