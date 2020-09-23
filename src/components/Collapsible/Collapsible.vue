@@ -66,11 +66,13 @@ export default {
         cursor: pointer;
         padding: 20px;
         font-weight: 700;
+        background-color: #fff;
         border-bottom: 1px solid #ccc;
     }
 
     &--body {
         padding: .5em 2em;
+        background-color: #fff;
         border-bottom: 1px solid #ccc;
     }
 }

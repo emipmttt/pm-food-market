@@ -1,5 +1,5 @@
 <template>
-<main :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`">
+<main :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto; background-position: 0 6em;`">
   <Header></Header>
   <section class="min-height main-container">
     <h1 class="h1">Frequent questions</h1>
