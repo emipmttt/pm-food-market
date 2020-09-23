@@ -49,7 +49,7 @@ export default {
     overflow: hidden;
     border-radius: 5px;
     img {
-      padding: 0 10px;
+      padding: 0;
       align-self: center;
       width: 20px;
       height: 20px;

@@ -5,6 +5,7 @@ import MainView from '../views/MainView/MainView.vue'
 import RecipeView from '../views/RecipeView/RecipeView.vue'
 
 import Recipes from "@/views/Recipes/Recipes"
+import Faq from "@/views/Faq/Faq.vue"
 import ManageRecipe from "@/views/ManageRecipe/ManageRecipe"
 
 import Ingredients from "@/views/Ingredients/Ingredients"
@@ -23,6 +24,11 @@ const routes = [
     path: '/recipeview',
     name: 'RecipeView',
     component: RecipeView
+  },
+  {
+    path: '/faq',
+    name: 'Faq',
+    component: Faq
   },
   {
     path: "/admin",
