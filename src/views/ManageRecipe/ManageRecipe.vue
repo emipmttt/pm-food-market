@@ -4,7 +4,7 @@
     :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`"
   >
     <section class="main-container">
-      <h1>Manage Recipe</h1>
+      <h1 class="h1">Manage Recipe</h1>
       <form @submit.prevent="update">
         <div class="row">
           <div class="col-md-4 form-input">
@@ -110,15 +110,15 @@ export default {
   margin: auto;
   max-width: 100%;
   @media only screen and (min-width: 48em) {
-    width: 46rem;
+    width: 40rem;
   }
 
   @media only screen and (min-width: 62em) {
-    width: 61rem;
+    width: 50rem;
   }
 
   @media only screen and (min-width: 75em) {
-    width: 71rem;
+    width: 55rem;
   }
 }
 
@@ -154,9 +154,10 @@ export default {
 .form-input {
   position: relative;
   &--input {
+    color: #0000006b;
     width: 100%;
     border: none;
-    border-bottom: solid 1px;
+    border-bottom: solid 1.5px #0000006b;
     padding: 0.5em;
     margin-bottom: 1em;
     background-color: transparent;
@@ -196,6 +197,7 @@ export default {
 .btn {
   display: inline-block;
   color: #fff;
+  border: none;
   border-radius: 5px;
   line-height: 1.2;
   padding: 0.4em;
