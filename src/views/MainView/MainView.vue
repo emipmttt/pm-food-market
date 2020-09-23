@@ -33,11 +33,11 @@ export default {
   data() {
     return {
       tags: [
-        "desayuno",
-        "almuerzo",
-        "cena",
-        "vegetariana",
-        "postre",
+        "Breakfast",
+        "Lunch",
+        "Dinner",
+        "Vegetarian",
+        "Dessert",
       ],
       recipes: [],
     };

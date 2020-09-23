@@ -15,11 +15,11 @@
         @click="showNav"
       />
       <transition-group name="fade">
-        <a v-show="showLink" key="1">Home</a>
+        <router-link to="/" v-show="showLink" key="1">Home</router-link>
         <a v-show="showLink" key="2" @click="showLogin = true">Log In</a>
         <a v-show="showLink" key="3" @click="showSignup = true">Sign Up</a>
         <a v-show="showLink" key="4">Subscription</a>
-        <a v-show="showLink" key="5">FAQ</a>
+        <router-link to="/faq" v-show="showLink" key="5">FAQ</router-link>
       </transition-group>
     </nav>
     <Login v-if="showLogin" @close="showLogin = !showLogin" />
@@ -92,8 +92,11 @@ export default {
       font-size: 1.35rem;
       margin: 20px;
       cursor: pointer;
+      text-decoration: none;
+      color: #000;
       &:hover {
         color: #f4a261;
+        text-decoration: none;
       }
     }
   }
