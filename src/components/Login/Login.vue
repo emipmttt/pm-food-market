@@ -14,10 +14,10 @@
               <div @click="sign_in_google" class="google" href>
                 <img src="../../assets/img/google.svg" />
               </div>
-              <!-- <div class="facebook">
+              <div @click="sign_in_facebook" class="facebook" href>
                 <img src="../../assets/img/facebook.svg" />
               </div>
-              <div class="twitter">
+              <!-- <div class="twitter" href>
                 <img src="../../assets/img/twitter.svg" />
               </div>-->
             </div>
@@ -109,8 +109,17 @@ export default {
           icon: "error",
         });
       }
-
       const uid = login.data.user.uid;
+
+      this.sign_in(uid);
+    },
+    async sign_in_facebook() {
+      const loginFB = await auth.facebook_auth();
+
+      if (!loginFB.success) {
+        return alert(loginFB.error.message);
+      }
+      const uid = loginFB.user.uid;
 
       this.sign_in(uid);
     },

@@ -60,18 +60,17 @@ export default {
 
             return {
                 success: true,
-                token: result.credential.accessToken,
-                user: result.user
+                data: {
+                    token: result.credential.accessToken,
+                    user: result.user
+                }
             }
 
         } catch (error) {
 
             return {
                 success: false,
-                errorCode: error.code,
-                errorMessage: error.message,
-                email: error.email,
-                credential: error.credential,
+                error
             }
 
         }
