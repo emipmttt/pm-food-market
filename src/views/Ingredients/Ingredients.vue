@@ -55,9 +55,9 @@ export default {
 
       var batch = db.batch();
 
-      data.forEach((recipe) => {
+      data.forEach((recipe, index) => {
         var recipeRef = db.collection("ingredients").doc();
-        batch.set(recipeRef, recipe);
+        batch.set(recipeRef, {...recipe, index});
       });
 
       batch.commit().then(function () {
