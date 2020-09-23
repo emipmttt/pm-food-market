@@ -1,34 +1,37 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-import MainView from '../views/MainView/MainView.vue'
-import RecipeView from '../views/RecipeView/RecipeView.vue'
+import MainView from "../views/MainView/MainView.vue";
+import RecipeView from "../views/RecipeView/RecipeView.vue";
+import Recipes from "@/views/Recipes/Recipes";
+import Faq from "@/views/Faq/Faq.vue";
+import ManageRecipe from "@/views/ManageRecipe/ManageRecipe";
+import Cart from "@/views/Cart/Cart";
+import Ingredients from "@/views/Ingredients/Ingredients";
+import Admin from "@/views/Admin/Admin";
 
-import Recipes from "@/views/Recipes/Recipes"
-import Faq from "@/views/Faq/Faq.vue"
-import ManageRecipe from "@/views/ManageRecipe/ManageRecipe"
-
-import Ingredients from "@/views/Ingredients/Ingredients"
-
-import Admin from "@/views/Admin/Admin"
-
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'MainView',
-    component: MainView
+    path: "/",
+    name: "MainView",
+    component: MainView,
   },
   {
-    path: '/recipeview',
-    name: 'RecipeView',
-    component: RecipeView
+    path: "/recipeview",
+    name: "RecipeView",
+    component: RecipeView,
   },
   {
-    path: '/faq',
-    name: 'Faq',
-    component: Faq
+    path: "/faq",
+    name: "Faq",
+    component: Faq,
+  },
+  {
+    path: "/cart",
+    name: "Cart",
+    component: Cart,
   },
   {
     path: "/admin",
@@ -36,26 +39,26 @@ const routes = [
     redirect: "/admin/recipes",
     children: [
       {
-        path: 'recipes',
+        path: "recipes",
         name: "Recipes",
-        component: Recipes
+        component: Recipes,
       },
       {
-        path: 'ingredients',
+        path: "ingredients",
         name: "Ingredients",
-        component: Ingredients
+        component: Ingredients,
       },
       {
         path: "/manage-recipe/:type",
         name: "ManageRecipe",
-        component: ManageRecipe
+        component: ManageRecipe,
       },
-    ]
-  }
-]
+    ],
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
