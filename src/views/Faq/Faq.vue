@@ -1,11 +1,11 @@
 <template>
-<div>
+<main :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: 60% auto`">
   <Header></Header>
-  <section class="main-container">
+  <section class="min-height main-container">
     <h1 class="h1">Frequent questions</h1>
     <collapsible :items="collapsibleItem"></collapsible>
   </section>
-</div>
+</main>
 </template>
 
 <script>
@@ -47,5 +47,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.min-height {
+  min-height: calc(100vh - 54px);
+}
 </style>
