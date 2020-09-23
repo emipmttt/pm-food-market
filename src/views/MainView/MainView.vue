@@ -33,11 +33,11 @@ export default {
   data() {
     return {
       tags: [
-        "occasion",
-        "breakfast",
-        "eggs-dairy",
-        "brunch",
-        "4-hours-or-less",
+        "desayuno",
+        "almuerzo",
+        "cena",
+        "vegetariana",
+        "postre",
       ],
       recipes: [],
     };

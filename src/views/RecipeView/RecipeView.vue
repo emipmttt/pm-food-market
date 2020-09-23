@@ -224,6 +224,8 @@ article {
     line-height: 85%;
     text-align: justify;
     margin-top: 5px;
+    height: 5em;
+    overflow: auto;
   }
 }
 
