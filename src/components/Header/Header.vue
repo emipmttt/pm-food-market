@@ -6,9 +6,11 @@
         <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
         <input type="text" placeholder="Search a dish..." />
       </div>
-      <figure class="header__navbar--cart">
-        <img src="https://img.icons8.com/ios/50/000000/shopping-cart.png" />
-      </figure>
+      <router-link to="/cart">
+        <figure class="header__navbar--cart">
+          <img src="https://img.icons8.com/ios/50/000000/shopping-cart.png" />
+        </figure>
+      </router-link>
     </nav>
   </header>
 </template>
@@ -63,6 +65,9 @@ export default {
   }
   &--input input:focus {
     outline: none;
+  }
+  &--cart {
+    cursor: pointer;
   }
   &--cart img {
     width: 30px;
