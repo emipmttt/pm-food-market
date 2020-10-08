@@ -63,7 +63,7 @@ export default {
       this.recipes = recipes;
     },
   },
-  async mounted() {
+  async created() {
     await this.get_main_recipes();
   },
 };

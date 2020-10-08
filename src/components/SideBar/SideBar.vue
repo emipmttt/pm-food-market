@@ -2,47 +2,44 @@
   <div class="container">
     <div class="control">
       <img
-        class="control__img"
-        src="https://img.icons8.com/ios/50/000000/menu.png"
         @click="showNav"
+        :src="require('@/assets/icons/menu.svg')"
+        class="control__img"
       />
     </div>
 
     <nav v-show="showLink" class="navigation-links">
       <img
-        class="control__img"
-        src="https://img.icons8.com/ios/50/000000/menu.png"
         @click="showNav"
+        :src="require('@/assets/icons/menu.svg')"
+        class="control__img"
       />
       <transition-group name="fade">
         <router-link to="/" v-show="showLink" key="1">Home</router-link>
-        <a v-show="showLink" key="2" @click="showLogin = true">Log In</a>
-        <a v-show="showLink" key="3" @click="showSignup = true">Sign Up</a>
-        <a v-show="showLink" key="4">Subscription</a>
-        <router-link to="/faq" v-show="showLink" key="5">FAQ</router-link>
+        <a v-show="showLink" key="2" @click="favorites">Favorites</a>
+        <a v-show="showLink" key="3">Subscription</a>
+        <router-link to="/faq" v-show="showLink" key="4">FAQ</router-link>
       </transition-group>
     </nav>
-    <Login v-if="showLogin" @close="showLogin = !showLogin" />
-    <SignUp v-if="showSignup" @close="showSignup = !showSignup" />
   </div>
 </template>
 
 <script>
-import Login from "../Login/Login";
-import SignUp from "../SignUp/SignUp";
+import { mapState } from "vuex";
+
 export default {
   name: "SideBar",
-  components: {
-    Login,
-    SignUp,
-  },
+
   data: () => {
     return {
       showSidebar: false,
       showLink: false,
-      showLogin: false,
-      showSignup: false,
     };
+  },
+  computed: {
+    ...mapState({
+      user: (state) => state.auth.user,
+    }),
   },
   methods: {
     showNav() {
@@ -53,9 +50,14 @@ export default {
         }, 500);
       } else {
         this.showSidebar = true;
-        setTimeout(() => {
-          this.showLink = true;
-        }, 500);
+        this.showLink = true;
+      }
+    },
+    favorites() {
+      if (this.user.id) {
+        this.$router.push("/favorites");
+      } else {
+        this.showLogin = true;
       }
     },
   },
@@ -110,7 +112,7 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  @include nav-childs(1, 2, 3, 4, 5);
+  @include nav-childs(1, 2, 3, 4);
 }
 .fade-enter,
 .fade-leave-to {

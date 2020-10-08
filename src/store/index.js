@@ -3,15 +3,17 @@ import Vuex from 'vuex'
 
 import auth from "./modules/auth"
 import recipes from "./modules/recipes"
+import global from "./modules/global"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: { auth, recipes },
-  state: {
+  modules: {
+    auth,
+    recipes,
+    global
   },
-  mutations: {
-  },
-  actions: {
-  }
+  state: {},
+  mutations: {},
+  actions: {}
 })

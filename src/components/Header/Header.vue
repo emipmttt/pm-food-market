@@ -3,17 +3,34 @@
     <nav class="header__navbar">
       <SideBar />
       <div class="header__navbar--input">
-        <img src="https://img.icons8.com/ios/24/000000/search--v1.png" />
+        <img :src="require('@/assets/icons/search.svg')" />
         <input type="text" placeholder="Search a dish..." />
       </div>
-      <figure class="header__navbar--cart">
-        <img src="https://img.icons8.com/ios/50/000000/shopping-cart.png" />
-      </figure>
+      <div class="header__navbar__buttons">
+        <div
+          @click="update_state({ propertie: 'login_view', value: !login_view })"
+          class="header__navbar__buttons__btn"
+        >
+          Login
+        </div>
+        <div
+          @click="
+            update_state({ propertie: 'signup_view', value: !signup_view })
+          "
+          class="header__navbar__buttons__btn"
+        >
+          Sign Up
+        </div>
+        <figure class="header__navbar--cart">
+          <img :src="require('@/assets/icons/shopping_cart.svg')" />
+        </figure>
+      </div>
     </nav>
   </header>
 </template>
 
 <script>
+import { mapMutations, mapState } from "vuex";
 import SideBar from "../SideBar/SideBar";
 export default {
   name: "Header",
@@ -22,6 +39,17 @@ export default {
   },
   data() {
     return {};
+  },
+  computed: {
+    ...mapState({
+      signup_view: (state) => state.global.signup_view,
+      login_view: (state) => state.global.login_view,
+    }),
+  },
+  methods: {
+    ...mapMutations({
+      update_state: "global/update_state",
+    }),
   },
 };
 </script>
@@ -32,6 +60,17 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+
+    &__btn {
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
 
   & figure {
     margin: 10px;

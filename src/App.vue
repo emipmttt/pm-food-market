@@ -6,9 +6,20 @@
       <router-link to="/recipes">recipes</router-link>
     </div>-->
     <router-view />
+    <Login />
+    <SignUp />
   </div>
 </template>
-
+<script>
+import Login from "@/components/Login/Login";
+import SignUp from "@/components/SignUp/SignUp";
+export default {
+  components: {
+    Login,
+    SignUp,
+  },
+};
+</script>
 <style lang="scss">
 @import "./assets/css/components/btn.scss";
 

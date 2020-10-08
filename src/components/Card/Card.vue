@@ -1,7 +1,7 @@
 <template>
   <figure class="card">
     <div class="card__header">
-      <img :src="require('@/assets/icons/favorite.svg')" />
+      <Favorite :recipeId="recipe.id" class="card__header__favorite" />
     </div>
     <router-link to="/recipeview">
       <img class="card__image" :src="recipe.url.split(',')[0]" alt />
@@ -17,9 +17,13 @@
 </template>
 
 <script>
+import Favorite from "./components/Favorite";
 export default {
   name: "Card",
   props: ["recipe"],
+  components: {
+    Favorite,
+  },
   methods: {},
 };
 </script>
@@ -48,11 +52,15 @@ export default {
   height: 250px;
   border-radius: 16px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
-  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(3px);
 
   &__header {
     position: absolute;
     padding: 10px;
+    &__favorite {
+      cursor: pointer;
+    }
   }
 
   &__image {

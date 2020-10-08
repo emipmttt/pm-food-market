@@ -1,12 +1,17 @@
 <template>
-  <transition name="modal">
+  <transition v-if="signup_view" name="modal">
     <div class="modal">
       <div class="modal__wrapper">
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Sign Up</slot>
             <img
-              @click="$emit('close')"
+              @click="
+                global_update_state({
+                  propertie: 'signup_view',
+                  value: !signup_view,
+                })
+              "
               src="https://img.icons8.com/ios/50/000000/xbox-x.png"
             />
           </div>
@@ -124,7 +129,7 @@ import db from "@/api/db";
 
 import swal from "sweetalert";
 
-import { mapMutations } from "vuex";
+import { mapMutations, mapState } from "vuex";
 export default {
   name: "SignUp",
   data() {
@@ -136,9 +141,15 @@ export default {
       passwordConfirm: "",
     };
   },
+  computed: {
+    ...mapState({
+      signup_view: (state) => state.global.signup_view,
+    }),
+  },
   methods: {
     ...mapMutations({
       update_state: "auth/update_state",
+      global_update_state: "global/update_state",
     }),
     async sign_up_google() {
       const login = await auth.google_auth();

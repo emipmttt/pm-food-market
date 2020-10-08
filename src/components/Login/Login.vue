@@ -1,11 +1,19 @@
 <template>
-  <transition name="modal">
+  <transition v-if="login_view" name="modal">
     <div class="modal">
       <div class="modal__wrapper">
         <div class="modal__container">
           <div class="modal__header">
             <slot name="header">Login</slot>
-            <button @click="$emit('close')" class="modal__header-close">
+            <button
+              @click="
+                global_update_state({
+                  propertie: 'login_view',
+                  value: !login_view,
+                })
+              "
+              class="modal__header-close"
+            >
               <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" />
             </button>
           </div>
@@ -62,7 +70,6 @@
 <script>
 import auth from "@/api/auth";
 import db from "@/api/db";
-
 import swal from "sweetalert";
 
 import { mapMutations, mapState } from "vuex";
@@ -78,11 +85,13 @@ export default {
   computed: {
     ...mapState({
       user: (state) => state.auth.user,
+      login_view: (state) => state.global.login_view,
     }),
   },
   methods: {
     ...mapMutations({
       update_state: "auth/update_state",
+      global_update_state: "global/update_state",
     }),
     async sign_in_email() {
       const login = await auth.sign_in(this.email, this.password);
