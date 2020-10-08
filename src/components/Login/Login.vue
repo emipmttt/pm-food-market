@@ -57,8 +57,8 @@
                 />
                 <label class="form-input--label" for="password">Password</label>
               </div>
-              <button class="button">Login</button>
-              <button class="button">Sign Up</button>
+              <div class="button">Login</div>
+              <div class="button">Sign Up</div>
             </form>
           </div>
         </div>
@@ -237,12 +237,13 @@ export default {
       color: white;
       background-color: #e76f51;
       border-radius: 5px;
+      padding: 5px;
+      margin-top: 10px;
     }
   }
 
   .social {
     display: flex;
-    justify-content: space-between;
     margin-top: 30px;
 
     div {
@@ -253,7 +254,7 @@ export default {
       align-items: center;
       justify-content: center;
       cursor: pointer;
-
+      margin-right: 10px;
       img {
         width: 20px;
       }
