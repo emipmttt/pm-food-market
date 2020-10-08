@@ -8,12 +8,14 @@
       </div>
       <div class="header__navbar__buttons">
         <div
+          v-if="!user.uid"
           @click="update_state({ propertie: 'login_view', value: !login_view })"
           class="header__navbar__buttons__btn"
         >
           Login
         </div>
         <div
+          v-if="!user.uid"
           @click="
             update_state({ propertie: 'signup_view', value: !signup_view })
           "
@@ -21,10 +23,17 @@
         >
           Sign Up
         </div>
-        <figure class="header__navbar--cart">
-          <img :src="require('@/assets/icons/shopping_cart.svg')" />
-        </figure>
+        <div
+          @click="logout"
+          v-if="user.uid"
+          class="header__navbar__buttons__btn"
+        >
+          Log Out
+        </div>
       </div>
+      <figure class="header__navbar--cart">
+        <img :src="require('@/assets/icons/shopping_cart.svg')" />
+      </figure>
     </nav>
   </header>
 </template>
@@ -44,12 +53,18 @@ export default {
     ...mapState({
       signup_view: (state) => state.global.signup_view,
       login_view: (state) => state.global.login_view,
+      user: (state) => state.auth.user,
     }),
   },
   methods: {
     ...mapMutations({
       update_state: "global/update_state",
+      auth_update_state: "auth/update_state",
     }),
+    logout() {
+      localStorage.removeItem("food_user_data");
+      this.auth_update_state({ propertie: "user", value: {} });
+    },
   },
 };
 </script>

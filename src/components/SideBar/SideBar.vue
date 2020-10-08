@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapMutations, mapState } from "vuex";
 
 export default {
   name: "SideBar",
@@ -39,9 +39,13 @@ export default {
   computed: {
     ...mapState({
       user: (state) => state.auth.user,
+      signup_view: (state) => state.auth.signup_view,
     }),
   },
   methods: {
+    ...mapMutations({
+      update_state: "global/update_state",
+    }),
     showNav() {
       if (this.showSidebar) {
         this.showLink = false;
@@ -54,10 +58,13 @@ export default {
       }
     },
     favorites() {
-      if (this.user.id) {
+      if (this.user.uid) {
         this.$router.push("/favorites");
       } else {
-        this.showLogin = true;
+        this.update_state({
+          propertie: "signup_view",
+          value: !this.signup_view,
+        });
       }
     },
   },

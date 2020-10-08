@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/recipes">recipes</router-link>
-    </div>-->
     <router-view />
     <Login />
     <SignUp />
@@ -13,10 +8,27 @@
 <script>
 import Login from "@/components/Login/Login";
 import SignUp from "@/components/SignUp/SignUp";
+import { mapMutations } from "vuex";
 export default {
   components: {
     Login,
     SignUp,
+  },
+  methods: {
+    ...mapMutations({
+      update_state: "auth/update_state",
+    }),
+    validate_user() {
+      var user = localStorage.getItem("food_user_data");
+
+      if (user) {
+        user = JSON.parse(user);
+        this.update_state({ propertie: "user", value: user });
+      }
+    },
+  },
+  created() {
+    this.validate_user();
   },
 };
 </script>

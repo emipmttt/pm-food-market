@@ -24,9 +24,6 @@
               <div class="facebook" href>
                 <img src="../../assets/img/facebook.svg" />
               </div>
-              <div class="twitter" href>
-                <img src="../../assets/img/twitter.svg" />
-              </div>
             </div>
 
             <form class="modal__form" @submit.prevent="sign_up_email">
@@ -186,12 +183,25 @@ export default {
           admin: false,
         });
 
-        this.update_state({
+        var user_data = {
           uid: uid,
           name: this.name,
           birthdate: this.birthdate,
           email: this.email,
           admin: false,
+        };
+
+        this.update_state({ propertie: "user", value: user_data });
+
+        localStorage.setItem("food_user_data", JSON.stringify(user_data));
+
+        swal({
+          title: "Successful sign up",
+          icon: "success",
+        });
+        this.global_update_state({
+          propertie: "signup_view",
+          value: !this.signup_view,
         });
       } catch (error) {
         return swal({
@@ -200,11 +210,6 @@ export default {
           icon: "error",
         });
       }
-      swal({
-        title: "Successful sign up",
-        icon: "success",
-      });
-      return this.$emit("close");
     },
   },
 };
