@@ -14,19 +14,25 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .switch {
   position: relative;
   display: inline-block;
   width: 110px;
   height: 110px;
   margin: 20px;
-}
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+  @media only screen and (max-width: 48em) {
+    width: 80px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 }
 
 .slider {

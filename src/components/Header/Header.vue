@@ -60,10 +60,16 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  flex-wrap: wrap;
 
   &__buttons {
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 48em) {
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     &__btn {
       padding: 10px 20px;
@@ -87,6 +93,11 @@ export default {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     border-radius: 5px;
+
+    @media only screen and (max-width: 48em) {
+      width: 80%;
+    }
+
     img {
       padding: 0;
       align-self: center;
