@@ -3,7 +3,7 @@
     <Header />
     <section class="recipeView">
       <article>
-        <h2>Salad</h2>
+        <h1>Salad</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -28,7 +28,7 @@
 
         <div class="container__table">
           <div class="container__table--header space">
-            <div class="container__table--title style-title" >Ingredientes</div>
+            <h2 class="container__table--title style-title" >Ingredients</h2>
             <button class="IconBase MuiIconButton-root" tabindex="0" type="button" aria-label="filter list" title="Filter list">
               <span class="">
                 <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
@@ -46,7 +46,7 @@
                   <th class="MuiTableCell-root MuiTableCell-head MuiTableCell-paddingCheckbox" scope="col">
                     <span class="IconBase MuiIconButton-root filasPadding MuiCheckbox-root" aria-disabled="false">
                       <span class="">
-                        <input type="checkbox" class="inputStyleBase" data-indeterminate="false" aria-label="select all desserts" value="">
+                        <input type="checkbox" class="inputStyleBase" data-indeterminate="false" aria-label="select all desserts" value="" title="Select all">
                         <!-- <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
                           <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
                         </svg> -->
@@ -97,8 +97,8 @@
         </div>
 
          <div class="contenido__botones">
-          <a href="#/">Buy</a>
-          <a href="#/">Add</a>
+          <a class="button button__buy" href="#/">Buy</a>
+          <a class="button button__add" href="#/">Add</a>
         </div>
       
       </article>
@@ -193,15 +193,21 @@ p {
   padding: 0px;
 }
 
-h2 {
-  display: flex;
-  align-items: center;
-  text-align: right;
-  font-weight: bold;
-  font-size: 49.6px;
-  line-height: 62px;
-  margin-top: 0px;
+h1 {
+  text-align: left;
+  font-size: 1.5em;
+  margin-top: .6em;
 }
+
+// h2 {
+//   display: flex;
+//   align-items: center;
+//   text-align: right;
+//   font-weight: bold;
+//   font-size: 49.6px;
+//   line-height: 62px;
+//   margin-top: 0px;
+// }
 .recipeView {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -210,12 +216,22 @@ h2 {
   height: 100%;
   margin: 0 auto;
   padding: 10px;
+
+  @media only screen and (max-width: 48em) {
+      grid-template-columns: 1fr;
+      width: 100%;
+  }
 }
 
 article {
   margin: 0 auto;
   width: 100%;
   height: 610px;
+
+  @media only screen and (max-width: 48em) {
+    margin: 0;
+    width: calc(100% - 10px);
+  }
 
   p {
     font-style: normal;
@@ -280,17 +296,30 @@ article {
     bottom: 20px;
     right: 20px;
 
-    a {
+    .button {
+      padding: 5px 10px;
+      margin-right: 10px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      border: none;
+      outline: none;
       text-decoration: none;
-      background-color: #e57373;
-      width: 70px;
-      height: 36px;
-      margin: 0px 10px 0 10px;
-      -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-      text-align: center;
-      color: white;
-      line-height: 36px;
+
+      &__buy {
+        background-color: #e76f51;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px 2px rgba(231, 111, 81, 0.5);
+      }
+
+      &__add {
+        border: 1px solid #e76f51;
+        border-radius: 5px;
+        color: #2c3e50;
+      }
+
     }
   }
   
@@ -421,7 +450,7 @@ article {
 }
 
 .MuiSvgIcon-root {
-  fill: blue;
+  fill: #000;
   width: 1em;
   height: 1em;
   display: inline-block;
