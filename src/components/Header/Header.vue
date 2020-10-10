@@ -31,9 +31,11 @@
           Log Out
         </div>
       </div>
-      <figure class="header__navbar--cart">
-        <img :src="require('@/assets/icons/shopping_cart.svg')" />
-      </figure>
+      <router-link to="/cart">
+        <figure class="header__navbar--cart">
+          <img :src="require('@/assets/icons/shopping_cart.svg')" />
+        </figure>
+      </router-link>
     </nav>
   </header>
 </template>
@@ -76,6 +78,10 @@ export default {
   align-items: center;
   padding: 20px;
   flex-wrap: wrap;
+
+  &--cart {
+    cursor: pointer;
+  }
 
   &__buttons {
     display: flex;
