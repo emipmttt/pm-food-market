@@ -4,8 +4,10 @@
   >
     <Header />
     <div class="empty" v-if="!cart.length">
-      <h2>No has agregado nada al carrito de compras</h2>
-      <button>Busca una receta</button>
+      <h2>¡No has agregado nada al carrito de compras!</h2>
+      <router-link to="/">
+        <button>Busca una receta</button>
+      </router-link>
     </div>
     <Footer />
   </main>
@@ -42,8 +44,13 @@ body {
   min-height: calc(100vh - 184px);
 }
 button {
+  font-size: 20px;
+  height: 40px;
   background-color: #e76f51;
   color: white;
+  border: 1px solid #e76f51;
   border-radius: 5px;
+  outline: none;
+  cursor: pointer;
 }
 </style>
