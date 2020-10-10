@@ -1,11 +1,12 @@
 <template>
   <main
-    :style="
-      `background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: auto 60%`
-    "
+    :style="`background-image:url('${require('@/assets/img/path3622.svg')}');background-repeat: no-repeat; background-size: auto 60%`"
   >
     <Header />
-    <p>Cart</p>
+    <div class="empty" v-if="!cart.length">
+      <h2>No has agregado nada al carrito de compras</h2>
+      <button>Busca una receta</button>
+    </div>
     <Footer />
   </main>
 </template>
@@ -20,12 +21,29 @@ export default {
     Header,
     Footer,
   },
+  data() {
+    return {
+      cart: [],
+    };
+  },
 };
 </script>
 
-<style>
+<style scoped>
 body {
   margin: 0;
   padding: 0;
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 184px);
+}
+button {
+  background-color: #e76f51;
+  color: white;
+  border-radius: 5px;
 }
 </style>
