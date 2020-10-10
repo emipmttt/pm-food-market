@@ -8,9 +8,9 @@
         <h1 class="h1">Ingredients</h1>
 
         <form @submit.prevent="upload_json">
-          <textarea v-model="json_data" placeholder="JSON Data"></textarea>
+          <textarea class="text--json" v-model="json_data" placeholder="JSON Data"></textarea>
           <br />
-          <button>Add Data</button>
+          <button class="button--json">Add Data</button>
         </form>
 
         <table class="recipe-table">
@@ -106,5 +106,30 @@ export default {
       text-align: right;
     }
   }
+}
+
+
+.text--json {
+  width: 40em;
+  height: 5em;
+  border: none;
+  border-bottom: solid 1px #272727;
+}
+
+.button--json {
+  padding: 5px 10px;
+  margin-right: 10px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+
+  background-color: #e76f51;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 2px rgba(231, 111, 81, 0.5);
 }
 </style>
